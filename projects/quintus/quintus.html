@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src='http://cdn.html5quintus.com/v0.2.0/quintus-all.min.js'></script>
+
+</head>
+<body>
+	<script>
+		var Q = Quintus().include("Sprites, Scenes, Input").setup();
+
+		Q.Sprite.extend("Player",{
+		  init: function(p) {
+		    this._super(p, {
+		        hitPoints: 10,
+		        damage: 5,
+		        x: 5,
+		        y: 1
+		    });
+			}
+		}); 
+
+		var player1 = new Q.Player();
+		console.log(player1.p.hitPoints);
+
+
+	</script>
+</body>
+</html>
+
+
+
+

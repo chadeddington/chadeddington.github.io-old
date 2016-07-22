@@ -1,0 +1,47 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="ce-blog">
+  <link rel="import" type="css" href="ce-blog.css">
+  <template>
+  	<paper-material>
+  		<h1>Blog</h1>
+  		<label>Select a post </label>
+  		<select value='{{post::change}}'>
+  			<option value="linked-list.html">Linked List</option>
+  			<option value="recursion">Recursion</option>
+  		</select>
+		</paper-material>
+    <paper-material>
+      <div id='blogView'></div>
+    </paper-material>
+
+
+
+  </template>
+</dom-module>
+
+<script>
+	Polymer({
+    is:'ce-blog',
+    properties: {
+    	post: {
+    		type: String,
+    		value: 'linked-list.html',
+    		observer: '_changePost'
+    	}
+    },
+    ready: function() {
+
+    },
+    _changePost: function(post) {
+      var self = this;
+      fetch('../../views/blog/' + post)
+      .then(function(response) {
+        return response.text()
+      }).then(function(body) {
+        self.$.blogView.innerHTML = body
+      })
+    }
+  });
+
+</script>
