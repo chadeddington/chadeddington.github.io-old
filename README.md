@@ -1,4 +1,4 @@
-## Polymer seed - lite
+# chadeddington.github.io
 
-- This is a minimal polymer boilerplate application
-- Cleaned up from 'Polymer Starter kit'
+**This is the repository for my github page**
+
