@@ -13,6 +13,10 @@ body {
   margin: 0;
 }
 
+h1 {
+	font-size: 42px;
+}
+
 iron-icon {
 	margin-right: 10px;
 }
@@ -21,6 +25,7 @@ paper-material {
 	background-color: white;
 	padding: 10px;
 	width: 90%;
+	max-width: 900px;
 	margin: 0 auto;
 	text-align: center;
 	margin-top: 10px;
@@ -57,6 +62,11 @@ paper-tabs a {
 	padding-bottom: 10px;
 }
 
+.tech-icon {
+	height: 150px;
+	margin: 40px;
+}
+
 .title {
 	margin-left: 50px;
 	font-size: 36px;
@@ -64,6 +74,15 @@ paper-tabs a {
 }
 
 @media all and (max-width: 480px) {
+	paper-tabs {
+		width: 100%;
+		margin-left: 0px;
+	}
+
+	iron-icon {
+		margin-right: 0px;
+	}
+
 	.nav-label {
 		display: none;
 	}
@@ -72,11 +91,8 @@ paper-tabs a {
 		font-size: 24px;
 	}
 
-	paper-tabs{
-		width: 100%;
-		margin-left: 0px;
+	.tech-icon {
+		margin: 10px;
 	}
-	iron-icon {
-		margin-right: 0px;
-	}
+	
 }
