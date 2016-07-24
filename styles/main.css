@@ -52,19 +52,26 @@ paper-tabs a {
 }
 
 .header {
-	background-color: blue;
+	background-color: navy;
 	color: white;
 	padding-bottom: 10px;
 }
 
 .title {
 	margin-left: 50px;
+	font-size: 36px;
+	height: 94px;
 }
 
 @media all and (max-width: 480px) {
 	.nav-label {
 		display: none;
 	}
+
+	.title {
+		font-size: 24px;
+	}
+
 	paper-tabs{
 		width: 100%;
 		margin-left: 0px;
