@@ -21,8 +21,8 @@
   // Routes
   app.route = function(val) {
     switch (val) {
-      case 'sandbox':
-        renderPage('views/sandbox.html')
+      case 'skills':
+        renderPage('views/skills.html')
         break;
       case 'blog':
         page.innerHTML = '<ce-blog></ce-blog>';
