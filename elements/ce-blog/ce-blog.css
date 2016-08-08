@@ -5,3 +5,7 @@ select {
 	width: 150px;
 	font-size: 16px;
 }
+
+#blogView {
+	margin-top: 50px;
+}
