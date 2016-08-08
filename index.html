@@ -32,11 +32,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <body>
   <template is='dom-bind' id='app'>
     <app-header-layout id='headerLayout'>
-      <app-header reveals fixed class='header'>
+      <app-header reveals fixed condenses class='header'>
       <!-- Title -->
         <app-toolbar class='title'> <div title>ChadEddington.github.io</div></app-toolbar>
         <!-- Navigation -->
-        <app-toolbar primary>
+        <app-toolbar primary class='nav-buttons'>
           <paper-tabs id='tabsNav' bottom-item attr-for-selected='nav' selected='{{selected}}'>
             <paper-tab nav='home'><a href="#/"><iron-icon icon='icons:home'></iron-icon><span class='nav-label'>Home</span></a></paper-tab>
             <paper-tab nav='blog'><a href="#/blog"><iron-icon icon='icons:speaker-notes'></iron-icon><span class='nav-label'>Blog</span></a></paper-tab>
