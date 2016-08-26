@@ -35,6 +35,9 @@
         break;
       case 'html5/apprentice':
         renderPage('views/html5/apprentice.html')
+        break;
+      case 'javascript/apprentice':
+        renderPage('views/javascript/apprentice.html')
     }
   }
   

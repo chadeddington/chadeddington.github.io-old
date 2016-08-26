@@ -7,13 +7,14 @@
 		The first object is our going to be our Node object. 
 	</p>
 </div>
-<!-- HTML generated using hilite.me -->
-<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">// The Node object</span>
-<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">Node</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">data</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-	<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">data</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">data</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">next</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<pre>
+	<code>
+	// The Node object
+	function Node(data) {
+		this.data = data;
+		this.next = null;
+	</code>
+</pre>
 
 <div class="container">
 	<p>
@@ -21,13 +22,14 @@
 	</p>
 </div>
 
-<!-- HTML generated using hilite.me -->
-<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">// The LinkedList object</span>
-<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">LinkedList</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-	<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">head</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">null</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+<pre>
+	<code>
+	// The LinkedList object
+	function LinkedList() {
+		this.head = null;
+		this.length = 0;
+	</code>
+</pre>
 
 <div class="container">
 	<p>
@@ -35,29 +37,30 @@
 	</p>
 </div>
 
-<!-- HTML generated using hilite.me -->
-<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #75715e">// Add the add function</span>
-<span style="color: #a6e22e">LinkedList</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">prototype</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">value</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-	<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">node</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">Node</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">value</span><span style="color: #f8f8f2">);</span>
-	<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">currentNode</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">head</span><span style="color: #f8f8f2">;</span>
+<pre>
+	<code>
+	// Add the add function
+	LinkedList.prototype.add = function(value) {
+		var node = new Node(value);
+		var currentNode = this.head;
 
-	<span style="color: #75715e">// Empty use-case</span>
-	<span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #a6e22e">currentNode</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-		<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">head</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">node</span><span style="color: #f8f8f2">;</span>
-		<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-		<span style="color: #66d9ef">return</span> <span style="color: #a6e22e">node</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #f8f8f2">}</span>
+		// Empty use-case
+		if (!currentNode) {
+			this.head = node;
+			this.length++;
+			return node;
+		}
 
-	<span style="color: #75715e">// Existing list use case</span>
-	<span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">currentNode</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">next</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-		<span style="color: #a6e22e">currentNode</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">currentNode</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">next</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #f8f8f2">}</span>
+		// Existing list use case
+		while (currentNode.next) {
+			currentNode = currentNode.next;
+		}
 
-	<span style="color: #a6e22e">currentNode</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">next</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">node</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #66d9ef">return</span> <span style="color: #a6e22e">node</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+		currentNode.next = node;
+		this.length++;
+		return node;
+	</code>
+</pre>
 
 <div class="container">
 	<p>
@@ -65,19 +68,20 @@
 	</p>
 </div>
 
-<!-- HTML generated using hilite.me -->
-<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">LinkedList</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">prototype</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">findNode</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">function</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">position</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-	<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">currentNode</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">this</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">head</span><span style="color: #f8f8f2">,</span>
-	<span style="color: #a6e22e">count</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">;</span>
+<pre>
+	<code>
+	LinkedList.prototype.findNode = function (position) {
+	var currentNode = this.head,
+	count = 1;
 
 
-	<span style="color: #66d9ef">while</span> <span style="color: #f8f8f2">(</span><span style="color: #a6e22e">count</span> <span style="color: #f92672">&lt;</span> <span style="color: #a6e22e">position</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-		<span style="color: #a6e22e">currentNode</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">currentNode</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">next</span><span style="color: #f8f8f2">;</span>
-		<span style="color: #a6e22e">count</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">;</span>
-	<span style="color: #f8f8f2">}</span>
-	<span style="color: #66d9ef">return</span> <span style="color: #a6e22e">currentNode</span><span style="color: #f8f8f2">;</span>
-<span style="color: #f8f8f2">}</span>
-</pre></div>
+	while (count < position) {
+		currentNode = currentNode.next;
+		count++;
+	}
+	return currentNode;
+	</code>
+</pre>
 
 <div class="container">
 	<p>
@@ -85,16 +89,18 @@
 	</p>
 </div>
 
-<!-- HTML generated using hilite.me -->
-<div style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">list</span> <span style="color: #f92672">=</span> <span style="color: #66d9ef">new</span> <span style="color: #a6e22e">LinkedList</span><span style="color: #f8f8f2">();</span>
+<pre>
+	<code>
+	var list = new LinkedList();
 
-<span style="color: #a6e22e">list</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Hello&#39;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #a6e22e">list</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;World!&#39;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #a6e22e">list</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;JavaScript&#39;</span><span style="color: #f8f8f2">);</span>
-<span style="color: #a6e22e">list</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">add</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;Rocks!&#39;</span><span style="color: #f8f8f2">);</span>
+	list.add('Hello');
+	list.add('World!');
+	list.add('JavaScript');
+	list.add('Rocks!');
 
-<span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">list</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">findNode</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">3</span><span style="color: #f8f8f2">));</span>
-</pre></div>
+	console.log(list.findNode(3));
+	</code>
+</pre>
 
 <div class="container">
 This will print:

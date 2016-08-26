@@ -1,0 +1,66 @@
+<paper-material elevation='1'>
+    <h2>JavaScript Apprentice Badge</h2>
+    <h3>Micro Badges</h3>
+    <div class="container">
+        <h4>Language Basics</h4>
+        <p> Solve at least 10 total JavaScript coding problems on these sites, then demonstrate and show your solutions:</p>
+        <ol>
+            <li>
+                Using the JavaScript language, have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. 
+            </li> 
+<pre>
+<code>
+    function FirstReverse(str) {  
+      return str.split('').reverse().join('');        
+    }
+
+    FirstReverse('cheese';  
+</code>
+</pre>
+            <li>
+                Using the JavaScript language, have the function FirstFactorial(num) take the num parameter being passed and return the factorial of it (e.g. if num = 4,
+                return (4 * 3 * 2 * 1)). For the test cases, the range will be between 1 and 18. 
+            </li>
+<pre>
+<code>
+  function FirstFactorial(num) { 
+    var factorial = num;
+    for (var i = num - 1; i > 0; i--) {
+        factorial = factorial * i;
+    }
+    return factorial;          
+  }
+    
+  FirstFactorial(readline());     
+</code>
+</pre>
+        <li>
+            Using the JavaScript language, have the function LongestWord(sen) take the sen parameter being passed and return the largest word in the string. If there are two or more words that are the same length, return the first word from the string with that length. Ignore punctuation and assume sen will not be empty. 
+        </li>
+<pre>
+<code>
+    function LongestWord(sen) { 
+      //filter out non alphanumeric characters
+      var words = sen.match(/[a-z0-9]+/gi)
+    
+      //Use array sort function to sort array
+      words.sort(function(a,b) {
+        return a.length < b.length
+      })
+    
+      return words[0]; 
+    }
+    
+    LongestWord(readline());   
+</code>
+</pre>
+        
+        </ol>
+        <h4>Common Pitfalls</h4>
+        <h4>Linting and JavaScript Style Guide</h4>
+        <h4>Essential JavaScript Patterns</h4>
+        <h4>Module Formats</h4>
+        <h4>Debugging</h4>
+    </div>
+
+</paper-material>

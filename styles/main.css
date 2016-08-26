@@ -23,7 +23,7 @@ iron-icon {
 
 paper-material {
 	background-color: white;
-	padding: 10px;
+	padding: 20px;
 	width: 100%;
 	max-width: 900px;
 	margin: 0 auto;
@@ -47,6 +47,14 @@ paper-tabs a {
 	text-align: center;
 }
 
+pre {
+	background-color: aqua;
+}
+
+code {
+	font-family: Courier, 'New Courier' , monospace
+}
+
 #headerLayout {
 	z-index: 1;
 }
@@ -66,8 +74,8 @@ paper-tabs a {
 }
 
 .skills-title {
-	border-bottom:1px solid gray;
-	padding-bottom: 10px;
+	border-top:1px solid gray;
+	padding-top: 10px;
 }
 
 .container, pre {
