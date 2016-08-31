@@ -24,7 +24,6 @@ iron-icon {
 paper-material {
 	background-color: white;
 	padding: 20px;
-	width: 100%;
 	max-width: 900px;
 	margin: 0 auto;
 	text-align: center;
@@ -49,6 +48,7 @@ paper-tabs a {
 
 pre {
 	background-color: aqua;
+	overflow-x: scroll;
 }
 
 code {
