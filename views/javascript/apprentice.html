@@ -1,9 +1,9 @@
 <paper-material elevation='1'>
-    <h2>JavaScript Apprentice Badge</h2>
-    <h3>Micro Badges</h3>
+    <h1>JavaScript Apprentice Badge</h1>
+    <h2>Micro Badges</h2>
     <div class="container">
-        <h4>Language Basics</h4>
-        <p> Solve at least 10 total JavaScript coding problems on these sites, then demonstrate and show your solutions:</p>
+        <h3>Language Basics</h3>
+        <p> <strong>Solve at least 10 total JavaScript coding problems on these sites, then demonstrate and show your solutions:</strong></p>
         <ol>
             <li>
                 Using the JavaScript language, have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. 
@@ -14,7 +14,7 @@
       return str.split('').reverse().join('');        
     }
 
-    FirstReverse('cheese';  
+    FirstReverse('cheese');  
 </code>
 </pre>
             <li>
@@ -31,7 +31,7 @@
     return factorial;          
   }
     
-  FirstFactorial(readline());     
+  FirstFactorial(24);     
 </code>
 </pre>
         <li>
@@ -51,16 +51,59 @@
       return words[0]; 
     }
     
-    LongestWord(readline());   
+    LongestWord('The longest word is Volkswagon');   
 </code>
 </pre>
+        <li>
+            Using the JavaScript language, have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
+        </li>
+<pre>
+<code>
+    function LetterChanges(str) { 
+        var stringArray = str.split('');
+        var newArray = stringArray;
         
+        // Replace with next letter
+        stringArray.forEach(function(letter, i) {
+            //check if it's a letter
+            if (letter.match(/[a-z]/i)) {
+                newArray[i] = (letter === 'z' || letter === 'Z') ? 'a' : String.fromCharCode(str.charCodeAt(i) + 1)
+            }
+            
+            if (newArray[i].match(/a|e|i|o|u/gi)) {
+                newArray[i] = newArray[i].toUpperCase();
+            }
+        })
+        return newArray; 
+                
+    }
+    
+    LetterChanges('Hello World');                            
+
+</code>
+</pre>
+        <li>
+            Using the JavaScript language, have the function SimpleAdding(num) add up all the numbers from 1 to num. For the test cases, the parameter num will be any number from 1 to 1000. 
+        </li>
+<pre>
+<code>
+    function SimpleAdding(num) { 
+        var sum = 0;
+        for (var i = 0; i < num; i++) {
+            sum += i + 1;
+        }
+    return sum; 
+    }
+    
+    SimpleAdding(8);  
+</code>
+</pre>
         </ol>
-        <h4>Common Pitfalls</h4>
-        <h4>Linting and JavaScript Style Guide</h4>
-        <h4>Essential JavaScript Patterns</h4>
-        <h4>Module Formats</h4>
-        <h4>Debugging</h4>
+        <h3>Common Pitfalls</h3>
+        <h3>Linting and JavaScript Style Guide</h3>
+        <h3>Essential JavaScript Patterns</h3>
+        <h3>Module Formats</h3>
+        <h3>Debugging</h3>
     </div>
 
 </paper-material>

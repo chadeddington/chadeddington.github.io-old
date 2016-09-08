@@ -22,22 +22,26 @@
   app.route = function(val) {
     switch (val) {
       case 'skills':
-        renderPage('views/skills.html')
+        renderPage('views/skills.html');
         break;
       case 'blog':
         page.innerHTML = '<ce-blog></ce-blog>';
         break;
       case 'projects':
-        renderPage('views/projects.html')
+        renderPage('views/projects.html');
         break;
       case 'home':
-        renderPage('views/home.html')
+        renderPage('views/home.html');
         break;
       case 'html5/apprentice':
-        renderPage('views/html5/apprentice.html')
+        renderPage('views/html5/apprentice.html');
         break;
       case 'javascript/apprentice':
-        renderPage('views/javascript/apprentice.html')
+        renderPage('views/javascript/apprentice.html');
+        break;
+      case 'wc/apprentice':
+        renderPage('views/webcomponents/apprentice.html');
+        break;
     }
   }
   

@@ -1,0 +1,74 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+An element demonstrating how delicious polymer can be.
+
+Example:
+
+    <github-polymer-wc
+      username="jpodwys"
+      ></github-polymer-wc>
+
+@demo demo/index.html
+@hero hero.svg
+-->
+
+<dom-module id="github-polymer-wc">
+  <template>
+    <style>
+      #gravatar {
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 50%;
+      }
+      .wrap {
+        display: flex;
+        align-items: center;
+        border: 4px solid #a0a0a0;
+        border-radius: 10px;
+        padding: 10px;
+        text-decoration: none;
+      }
+      .user-info {
+        margin: 0 0 0 10px;
+        color: #000000;
+      }
+    </style>
+    <a id="html-url" class="wrap" href$="[[_data.html_url]]">
+      <img id="gravatar" src$="[[_data.avatar_url]]">
+      <h1 class='user-info'>
+        <span>[[_data.name]]</span> - <small>@[[_data.login]]</small>
+      </h1>
+    </a>
+  </template>
+
+  <script>
+    Polymer({
+      is: 'github-polymer-wc',
+
+      properties: {
+        username: {
+          type: String,
+          value: null,
+          observer: '_fetchUser'
+        },
+        _data: {
+          type: Object,
+          value: function(){ return {}; }
+        }
+      },
+
+      _fetchUser() {
+        if(!this.username || !this.username.length) return;
+        fetch('https://api.github.com/users/' + this.username)
+          .then(res => res.json())
+          .then(function (data){
+            if(!data) return;
+            this._data = data;
+          }.bind(this)
+        );
+      }
+
+    });
+  </script>
+</dom-module>
