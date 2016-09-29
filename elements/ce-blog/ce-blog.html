@@ -28,7 +28,7 @@
     	}
     },
     ready: function() {
-
+      
     },
     _changePost: function(post) {
       var self = this;
@@ -37,8 +37,15 @@
         return response.text()
       }).then(function(body) {
         self.$.blogView.innerHTML = body
+        // highlight the code
+        document.querySelectorAll('pre code').forEach(function(item) {
+          hljs.highlightBlock(item);
+        });
       })
     }
   });
-
 </script>
+
+<!-- Hightlight.js-->
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.7.0/highlight.min.js"></script>

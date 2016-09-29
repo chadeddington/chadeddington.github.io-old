@@ -9,10 +9,10 @@
 </div>
 <pre>
 	<code>
-	// The Node object
-	function Node(data) {
-		this.data = data;
-		this.next = null;
+// The Node object
+function Node(data) {
+  this.data = data;
+  this.next = null;
 	</code>
 </pre>
 
@@ -24,41 +24,41 @@
 
 <pre>
 	<code>
-	// The LinkedList object
-	function LinkedList() {
-		this.head = null;
-		this.length = 0;
+// The LinkedList object
+function LinkedList() {
+  this.head = null;
+  this.length = 0;
 	</code>
 </pre>
 
 <div class="container">
 	<p>
-		Now that we have our objects, let's modify the LinkedList object by giving it an add function. This function will take in a value and create a node that contains that value. This node will then be added to the end of the list.
+	  Now that we have our objects, let's modify the LinkedList object by giving it an add function. This function will take in a value and create a node that contains that value. This node will then be added to the end of the list.
 	</p>
 </div>
 
 <pre>
 	<code>
-	// Add the add function
-	LinkedList.prototype.add = function(value) {
-		var node = new Node(value);
-		var currentNode = this.head;
+// Add the add function
+LinkedList.prototype.add = function(value) {
+  var node = new Node(value);
+  var currentNode = this.head;
 
-		// Empty use-case
-		if (!currentNode) {
-			this.head = node;
-			this.length++;
-			return node;
-		}
+  // Empty use-case
+  if (!currentNode) {
+    this.head = node;
+    this.length++;
+    return node;
+  }
 
-		// Existing list use case
-		while (currentNode.next) {
-			currentNode = currentNode.next;
-		}
+  // Existing list use case
+  while (currentNode.next) {
+    currentNode = currentNode.next;
+  }
 
-		currentNode.next = node;
-		this.length++;
-		return node;
+  currentNode.next = node;
+  this.length++;
+  return node;
 	</code>
 </pre>
 
@@ -70,16 +70,16 @@
 
 <pre>
 	<code>
-	LinkedList.prototype.findNode = function (position) {
-	var currentNode = this.head,
-	count = 1;
+LinkedList.prototype.findNode = function (position) {
+var currentNode = this.head,
+count = 1;
 
 
-	while (count < position) {
-		currentNode = currentNode.next;
-		count++;
-	}
-	return currentNode;
+while (count < position) {
+  currentNode = currentNode.next;
+  count++;
+}
+return currentNode;
 	</code>
 </pre>
 
@@ -91,14 +91,14 @@
 
 <pre>
 	<code>
-	var list = new LinkedList();
+var list = new LinkedList();
 
-	list.add('Hello');
-	list.add('World!');
-	list.add('JavaScript');
-	list.add('Rocks!');
+list.add('Hello');
+list.add('World!');
+list.add('JavaScript');
+list.add('Rocks!');
 
-	console.log(list.findNode(3));
+console.log(list.findNode(3));
 	</code>
 </pre>
 
@@ -106,9 +106,9 @@
 This will print:
 <pre>
  <code class="javascript"> 
- Node {
-    data: 'JavaScript',
-    next: Node { data: 'Rocks!', next: null } }
+Node {
+  data: 'JavaScript',
+  next: Node { data: 'Rocks!', next: null } }
  </code>
 </pre>
 </div>
