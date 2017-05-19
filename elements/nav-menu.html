@@ -19,7 +19,7 @@
 
 			.nav-link, .nav-link:visited {
 				text-decoration: none;
-				margin: 5px;
+				padding: 10px;
 				color: white;
 			}
 
@@ -36,7 +36,7 @@
 			}
 			
 			.show-menu {
-				height: 130px;
+				height: 190px;
 				background-color: #282C34;
 				transition: height .5s;
 			}
@@ -56,10 +56,10 @@
 
 		<i class="menu-btn" on-click='toggleMenu'></i>
 		<div id='mobileNav' class$='[[_getDisplayMenu(visible)]]'>
-			<a class="nav-link" href="#/home" on-click='toggleMenu'>home</a>
-      <a class="nav-link" href="#/projects" on-click='toggleMenu'>projects</a>
-      <a class="nav-link" href="#/blog" on-click='toggleMenu'>blog</a>
-      <a class="nav-link" href="#/skills" on-click='toggleMenu'>skills</a>
+			<a class="nav-link" href="#/home" on-click='toggleMenu'>Home</a>
+      <a class="nav-link" href="#/projects" on-click='toggleMenu'>Projects</a>
+      <a class="nav-link" href="#/blog" on-click='toggleMenu'>Blog</a>
+      <a class="nav-link" href="#/skills" on-click='toggleMenu'>Skills</a>
 		</div>
 		
 	</template>
