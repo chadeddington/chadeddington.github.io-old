@@ -1,0 +1,25 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+
+<dom-module id="app-nav">
+	<template>
+		<style>
+			:host {
+				display: block;
+			}
+		</style>
+
+		<h2>Nav element</h2>
+		
+	</template>
+	<script>
+		class AppNav extends Polymer.Element {
+			static get is() { return 'app-nav'}
+			static get properties() {
+				return {
+
+				}
+			}
+		}
+		customElements.define(AppNav.is, AppNav);
+	</script>
+</dom-module>

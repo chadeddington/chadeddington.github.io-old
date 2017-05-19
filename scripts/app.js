@@ -1,5 +1,5 @@
 (function() {
-	var app = document.getElementById('app');
+	var app = document.getElementById('nav');
 	var page = document.getElementById('page');
 
   // Initial load
@@ -19,29 +19,22 @@
   }
 
   // Routes
-  app.route = function(val) {
+  router = function(val) {
     switch (val) {
       case 'skills':
-        renderPage('views/skills.html');
-        break;
+        return 'views/skills.html';
       case 'blog':
-        page.innerHTML = '<ce-blog></ce-blog>';
-        break;
+        return '<ce-blog></ce-blog>';
       case 'projects':
-        renderPage('views/projects.html');
-        break;
+        return 'views/projects.html';
       case 'home':
-        renderPage('views/home.html');
-        break;
+        return 'views/home.html';
       case 'html5/apprentice':
-        renderPage('views/html5/apprentice.html');
-        break;
+        return 'views/html5/apprentice.html';
       case 'javascript/apprentice':
-        renderPage('views/javascript/apprentice.html');
-        break;
+        return 'views/javascript/apprentice.html';
       case 'wc/apprentice':
-        renderPage('views/webcomponents/apprentice.html');
-        break;
+        return 'views/webcomponents/apprentice.html';
     }
   }
   
@@ -50,7 +43,7 @@
     app.selected = location.hash.replace(/#\/(.*)/,"$1");
     console.log(app.selected)
     if (app.selected == undefined || app.selected == '') app.selected = 'home';
-    app.route(app.selected);
+    renderPage(router(app.selected));
   }
   
   // Listen for your URL change
