@@ -75,7 +75,16 @@
 				}
 			}
 
-			toggleMenu() {
+			ready() {
+				super.ready();
+				// close mobile menu by clicking somewhere else
+				document.addEventListener('click', e => {
+					this.visible = false;
+				})
+			}
+
+			toggleMenu(e) {
+				e.stopPropagation();
 				this.visible = !this.visible;
 			}
 
