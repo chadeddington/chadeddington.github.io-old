@@ -8,7 +8,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 
 body {
-  background: #EEEEEE;
+  background: white;
   font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0;
   font-size: 20px;
@@ -22,35 +22,6 @@ h1 {
 	font-size: 42px;
 }
 
-iron-icon {
-	margin-right: 10px;
-}
-
-paper-material {
-	background-color: white;
-	padding: 20px;
-	max-width: 750px;
-	margin: 0 auto;
-	text-align: center;
-}
-
-paper-material a {
-	text-decoration: none;
-	color: blue;
-}
-
-paper-tabs {
-	margin-left: 65px;
-	width: 500px;
-}
-
-paper-tabs a {
-	color: white;
-	text-decoration: none;
-	height: auto;
-	text-align: center;
-}
-
 pre {
   width: 600px;
 	overflow-x: scroll;
@@ -60,43 +31,34 @@ code {
   font-size: 16px;
 }
 
-
-#headerLayout {
-	z-index: 1;
-}
-
-.icon-container {
-	margin-top: 50px;
-}
-
-.skills-box {
-	display: flex;
-	flex-direction: row;
-	padding: 20px;
-}
-
-.skills-item {
-	flex-grow: 1;
-}
-
-.skills-title {
-	border-top:1px solid gray;
-	padding-top: 10px;
-}
-
 .container, pre {
 	text-align: left;
 }
 
 .header {
-	background-color: navy;
 	color: white;
-	padding-bottom: 10px;
+	background-color: #282C34;
 }
 
-.tech-icon {
-	height: 50px;
-    margin: 10px
+.nav-link, .nav-link:visited {
+	text-decoration: none;
+	margin: 5px;
+	color: white;
+}
+
+.main-content {
+	height: 100vh;
+	padding: 0 15px;
+	background-color: white;
+}
+
+.skills-item {
+	display: inline;
+}
+.skills-item a, .skills-item a:visited {
+	text-decoration: none;
+	margin: 10px;
+	color: blue;
 }
 
 .title {
@@ -104,30 +66,8 @@ code {
 	font-size: 36px;
 }
 
-@media all and (max-width: 480px) {
-	paper-tabs {
-		width: 100%;
-		margin-left: 0px;
-	}
-
-	iron-icon {
-		margin-right: 0px;
-	}
-
-	.nav-buttons {
-		padding-top: 40px;
-	}
-
-	.nav-label {
+@media (max-width: 767px) {
+	#nav {
 		display: none;
 	}
-
-	.title {
-		font-size: 24px;
-	}
-
-	.tech-icon {
-		margin: 10px;
-	}
-	
 }
