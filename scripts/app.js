@@ -18,27 +18,12 @@
       })
   }
 
-  // Routes
+  // Router
   router = function(val) {
-    switch (val) {
-      case 'skills':
-        return 'views/skills.html';
-      case 'blog':
-        return '<ce-blog></ce-blog>';
-      case 'projects':
-        return 'views/projects.html';
-      case 'home':
-        return 'views/home.html';
-      case 'html5/apprentice':
-        return 'views/html5/apprentice.html';
-      case 'javascript/apprentice':
-        return 'views/javascript/apprentice.html';
-      case 'wc/apprentice':
-        return 'views/webcomponents/apprentice.html';
-    }
+    return 'views/' + val + '.html';
   }
   
-  // Route handler
+  // Route change handler
   var checkHash = function(hash) {
     app.selected = location.hash.replace(/#\/(.*)/,"$1");
     console.log(app.selected)

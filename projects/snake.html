@@ -1,0 +1,116 @@
+<html>
+	<head>
+		<style>
+			body, html {
+				height: 100%;
+				margin: 0px;
+			}
+			body {
+				display: flex;
+				background-color: black;
+				align-items: center;
+				justify-content: center;
+			}
+
+			canvas {
+				border: 2px solid white;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas width=400 height=400></canvas>
+		<script>
+			var canvas = document.querySelector('canvas');
+			var context = canvas.getContext('2d');
+			var grid = 16;
+
+			// characters
+			var snake = {
+				x: 160,
+				y: 160,
+				dx: grid,
+				dy: 0,
+				segments: [],
+				maxLength: 4
+			};
+			
+			var apple = {
+				x: 320,
+				y: 320
+			}
+
+			var counter = 0;
+
+			// game loop
+			function frame() {
+				requestAnimationFrame(frame);
+				counter++;
+
+				// make loop 15 fbs
+				if (counter < 5) return;
+
+				// loop bounds
+				// x
+				if (snake.x > canvas.width) {
+					snake.x = 0
+				} else if (snake.x < 0) {
+					snake.x = canvas.width - grid;
+				} else {
+					snake.x += snake.dx;
+				}
+				// y
+				if (snake.y > canvas.height) {
+					snake.y = 0
+				} else if (snake.y < 0) {
+					snake.y = canvas.height - grid;
+				} else {
+					snake.y += snake.dy;
+				}
+				
+				// Add to the segments array
+				snake.segments.unshift({x: snake.x, y :snake.y});
+				// If we reached the snake size remove the last item
+				if (snake.segments.length > snake.maxLength) {
+					snake.segments.pop();
+				}
+
+				// reset counter and clear the screen
+				counter = 0;
+				context.clearRect(0, 0, canvas.width, canvas.height);
+
+				// Draw apple
+				context.fillStyle = 'red';
+				context.fillRect(apple.x, apple.y, grid, grid);
+
+				// Eating the apple
+				if (snake.x === apple.x && snake.y === apple.y) {
+					snake.maxLength++;
+				}
+
+				// Draw snake
+				context.fillStyle = 'green';
+				snake.segments.forEach(function(segment, index) {
+					context.fillRect(segment.x, segment.y, grid - 1, grid - 1);	
+				});
+
+				// arrow key listeners
+				document.addEventListener('keydown', function(e) {
+					if (e.which === 37) {
+						snake.dx = -grid;
+						snake.dy = 0;
+					} if (e.which === 40) {
+						snake.dy = grid;
+						snake.dx = 0;
+					} if (e.which === 39) {
+						snake.dx = grid;
+						snake.dy = 0;
+					} if (e.which === 38) {
+						snake.dy = -grid;
+						snake.dx = 0;
+					}
+				})
+			}
+			requestAnimationFrame(frame);
+		</script>
+	</body>
+</html>
