@@ -14,6 +14,14 @@ body {
   font-size: 20px;
 }
 
+a {
+	text-decoration: none;
+}
+
+a:visited {
+	color: blue;
+}
+
 p {
   line-height: 1.5em;
 }
@@ -38,7 +46,7 @@ code {
 
 .header {
 	color: white;
-	background-color: #282C34;
+	background-color: black;
 }
 
 .nav-link, .nav-link:visited {
@@ -59,13 +67,31 @@ code {
 }
 
 .page-title {
-	background-image: url('../assets/images/keyboard.jpg');
+	background-color: black;
 	height: 300px;
 	color: white;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	background-size: cover;
+}
+
+.page-home {
+	background-image: url('../assets/images/home.jpg');
+	background-position-y: -50px; 
+}
+
+.page-skills {
+	background-image: url('../assets/images/computer_notebook.jpg');
+}
+
+.page-sand {
+	background-image: url('../assets/images/sand.jpg');
+	background-position-y: -150px; 
+}
+
+.page-projects {
+	background-image: url('../assets/images/pencils.jpg');
 }
 
 .page-content {
@@ -78,6 +104,14 @@ code {
 .title {
 	margin-left: 50px;
 	font-size: 36px;
+}
+
+.skills-item {
+	margin-top: 10px;
+}
+.skills-item a {
+	text-decoration: none;
+	color: blue;
 }
 
 li.code-block {
@@ -94,22 +128,37 @@ li.code-block pre {
 }
 
 li.show pre.small {
-	height: 250px;
+	height: 200px;
 	transition: height .5s;
 }
 
 li.show pre.large {
-	height: 450px;
+	height: 400px;
 	transition: height .5s;
 }
 
 
 @media (max-width: 767px) {
+	body {
+		font-size: 16px;
+	}
+
+	code {
+		font-size: 16px;
+	}
+
 	#nav {
 		display: none;
 	}
 
 	.page-title {
-		height: 200px;
+		height: 150px;
+		background-position-y: 0px;
+	}
+}
+
+@media (min-width: 1500px) {
+	.page-title {
+		background-position-y: -250px;
 	}
 }
