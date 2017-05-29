@@ -35,3 +35,7 @@
   window.addEventListener('hashchange', checkHash);
 
 })()
+
+function toggleBlock(e) {
+  e.target.classList.contains('show') ? e.target.classList.remove('show') : e.target.classList.add('show');
+}

@@ -1,109 +1,27 @@
+<div class="page-title">
+  <h1>JavaScript Apprentice Badge</h1>
+</div>
+
 <div class="page-content">
-    <h1>JavaScript Apprentice Badge</h1>
     <h2>Micro Badges</h2>
-    <div class="container">
-        <h3>Language Basics</h3>
-        <p> <strong>Solve at least 10 total JavaScript coding problems on these sites, then demonstrate and show your solutions:</strong></p>
-        <ol>
-            <li>
-                Using the JavaScript language, have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. 
-            </li> 
-<pre>
-<code>
-    function FirstReverse(str) {  
-      return str.split('').reverse().join('');        
-    }
-
-    FirstReverse('cheese');  
-</code>
-</pre>
-            <li>
-                Using the JavaScript language, have the function FirstFactorial(num) take the num parameter being passed and return the factorial of it (e.g. if num = 4,
-                return (4 * 3 * 2 * 1)). For the test cases, the range will be between 1 and 18. 
-            </li>
-<pre>
-<code>
-  function FirstFactorial(num) { 
-    var factorial = num;
-    for (var i = num - 1; i > 0; i--) {
-        factorial = factorial * i;
-    }
-    return factorial;          
-  }
-    
-  FirstFactorial(24);     
-</code>
-</pre>
-        <li>
-            Using the JavaScript language, have the function LongestWord(sen) take the sen parameter being passed and return the largest word in the string. If there are two or more words that are the same length, return the first word from the string with that length. Ignore punctuation and assume sen will not be empty. 
-        </li>
-<pre>
-<code>
-    function LongestWord(sen) { 
-      //filter out non alphanumeric characters
-      var words = sen.match(/[a-z0-9]+/gi)
-    
-      //Use array sort function to sort array
-      words.sort(function(a,b) {
-        return a.length < b.length
-      })
-    
-      return words[0]; 
-    }
-    
-    LongestWord('The longest word is Volkswagon');   
-</code>
-</pre>
-        <li>
-            Using the JavaScript language, have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
-        </li>
-<pre>
-<code>
-    function LetterChanges(str) { 
-        var stringArray = str.split('');
-        var newArray = stringArray;
-        
-        // Replace with next letter
-        stringArray.forEach(function(letter, i) {
-            //check if it's a letter
-            if (letter.match(/[a-z]/i)) {
-                newArray[i] = (letter === 'z' || letter === 'Z') ? 'a' : String.fromCharCode(str.charCodeAt(i) + 1)
-            }
-            
-            if (newArray[i].match(/a|e|i|o|u/gi)) {
-                newArray[i] = newArray[i].toUpperCase();
-            }
-        })
-        return newArray; 
-                
-    }
-    
-    LetterChanges('Hello World');                            
-
-</code>
-</pre>
-        <li>
-            Using the JavaScript language, have the function SimpleAdding(num) add up all the numbers from 1 to num. For the test cases, the parameter num will be any number from 1 to 1000. 
-        </li>
-<pre>
-<code>
-    function SimpleAdding(num) { 
-        var sum = 0;
-        for (var i = 0; i < num; i++) {
-            sum += i + 1;
-        }
-    return sum; 
-    }
-    
-    SimpleAdding(8);  
-</code>
-</pre>
-        </ol>
-        <h3>Common Pitfalls</h3>
-        <h3>Linting and JavaScript Style Guide</h3>
-        <h3>Essential JavaScript Patterns</h3>
-        <h3>Module Formats</h3>
-        <h3>Debugging</h3>
-    </div>
-
+    <ol>
+      <li>
+        <a href="#/javascript/languageBasics">JavaScript Language Basics</a>
+      </li>
+      <li>
+        <a href="#/">JavaScript Common Pitfalls</a>
+      </li>
+      <li>
+        <a href="#">Linting & JavaScript Style Guide</a>
+      </li>
+      <li>
+        <a href="#">Essential JavaScript Patterns</a>
+      </li>
+      <li>
+        <a href="#">JavaScript Module Formats</a>
+      </li>
+      <li>
+        <a href="#">JavaScript Debugging</a>
+      </li>
+    </ol>
 </div>

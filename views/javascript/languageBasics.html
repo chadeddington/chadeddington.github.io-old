@@ -1,0 +1,113 @@
+<div class="page-title">
+    <h1>Language Basics</h1>
+</div>
+
+<div class="page-content">
+  <h3> Solve at least 10 total JavaScript coding problems on these sites, then demonstrate and show your solutions:</h3>
+  <ol>
+    <li class="code-block" onClick='toggleBlock(event)'>
+      Using the JavaScript language, have the function FirstReverse(str) take the str parameter being passed and return the string in reversed order. 
+      <pre class="small">
+      <code>
+        function FirstReverse(str) {  
+          return str.split('').reverse().join('');        
+        }
+
+        FirstReverse('cheese');  
+      </code>
+    </pre>
+    </li> 
+    
+      <li class="code-block" onClick='toggleBlock(event)'>
+        Using the JavaScript language, have the function FirstFactorial(num) take the num parameter being passed and return the factorial of it (e.g. if num = 4,
+        return (4 * 3 * 2 * 1)). For the test cases, the range will be between 1 and 18.
+
+        <pre class="small">
+        <code>
+          function FirstFactorial(num) { 
+            var factorial = num;
+            for (var i = num - 1; i > 0; i--) {
+                factorial = factorial * i;
+            }
+            return factorial;          
+          }
+            
+          FirstFactorial(24);     
+        </code>
+        </pre>
+      </li>
+    
+      <li class="code-block" onClick='toggleBlock(event)'>
+        Using the JavaScript language, have the function LongestWord(sen) take the sen parameter being passed and return the largest word in the string. If there are two or more words that are the same length, return the first word from the string with that length. Ignore punctuation and assume sen will not be empty. 
+        
+        <pre class="large">
+        <code>
+          function LongestWord(sen) { 
+            //filter out non alphanumeric characters
+            var words = sen.match(/[a-z0-9]+/gi)
+          
+            //Use array sort function to sort array
+            words.sort(function(a,b) {
+              return a.length < b.length
+            })
+          
+            return words[0]; 
+          }
+          
+          LongestWord('The longest word is Volkswagon');   
+        </code>
+        </pre>
+
+      </li>
+
+      <li class="code-block" onClick='toggleBlock(event)'>
+        Using the JavaScript language, have the function LetterChanges(str) take the str parameter being passed and modify it using the following algorithm. Replace every letter in the string with the letter following it in the alphabet (ie. c becomes d, z becomes a). Then capitalize every vowel in this new string (a, e, i, o, u) and finally return this modified string. 
+
+        <pre class="large">
+        <code>
+          function LetterChanges(str) { 
+              var stringArray = str.split('');
+              var newArray = stringArray;
+              
+              // Replace with next letter
+              stringArray.forEach(function(letter, i) {
+                  //check if it's a letter
+                  if (letter.match(/[a-z]/i)) {
+                      newArray[i] = (letter === 'z' || letter === 'Z') ? 'a' : String.fromCharCode(str.charCodeAt(i) + 1)
+                  }
+                  
+                  if (newArray[i].match(/a|e|i|o|u/gi)) {
+                      newArray[i] = newArray[i].toUpperCase();
+                  }
+              })
+              return newArray; 
+                      
+          }
+            
+          LetterChanges('Hello World');                            
+
+        </code>
+        </pre>
+      </li>
+
+    
+      <li class="code-block" onClick='toggleBlock(event)'>
+        Using the JavaScript language, have the function SimpleAdding(num) add up all the numbers from 1 to num. For the test cases, the parameter num will be any number from 1 to 1000. 
+
+        <pre class="small">
+        <code>
+          function SimpleAdding(num) { 
+              var sum = 0;
+              for (var i = 0; i < num; i++) {
+                  sum += i + 1;
+              }
+          return sum; 
+          }
+          
+          SimpleAdding(8);  
+        </code>
+        </pre>
+      </li>
+  </ol>
+</div>
+

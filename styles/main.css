@@ -23,12 +23,13 @@ h1 {
 }
 
 pre {
-  width: 600px;
 	overflow-x: scroll;
+	background-color: black;
 }
 
 code {
-  font-size: 16px;
+  font-size: 18px;
+  color: springgreen;
 }
 
 .container, pre {
@@ -52,15 +53,6 @@ code {
 	background-color: white;
 }
 
-.skills-item {
-	display: inline;
-}
-
-.skills-item a, .skills-item a:visited {
-	text-decoration: none;
-	margin: 10px;
-	color: blue;
-}
 
 .page {
 	height: 100%;
@@ -87,6 +79,30 @@ code {
 	margin-left: 50px;
 	font-size: 36px;
 }
+
+li.code-block {
+	margin-top: 20px;
+}
+
+li.code-block:hover {
+	cursor: pointer;
+}
+
+li.code-block pre {
+	height: 0px;
+	transition: height .5s;
+}
+
+li.show pre.small {
+	height: 250px;
+	transition: height .5s;
+}
+
+li.show pre.large {
+	height: 450px;
+	transition: height .5s;
+}
+
 
 @media (max-width: 767px) {
 	#nav {
