@@ -72,6 +72,7 @@ code {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-size: cover;
 }
 
 .page-content {
@@ -89,5 +90,9 @@ code {
 @media (max-width: 767px) {
 	#nav {
 		display: none;
+	}
+
+	.page-title {
+		height: 200px;
 	}
 }
