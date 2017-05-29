@@ -48,17 +48,37 @@ code {
 
 .main-content {
 	height: 100vh;
-	padding: 0 15px;
 	background-color: white;
 }
 
 .skills-item {
 	display: inline;
 }
+
 .skills-item a, .skills-item a:visited {
 	text-decoration: none;
 	margin: 10px;
 	color: blue;
+}
+
+.page {
+	height: 100%;
+}
+
+.page-title {
+	background-image: url('../assets/images/keyboard.jpg');
+	height: 300px;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.page-content {
+	max-width: 1000px;
+	margin: 0 auto;
+	height: 100%;
+	padding: 10px;
 }
 
 .title {
