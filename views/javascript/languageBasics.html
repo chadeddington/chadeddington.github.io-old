@@ -108,6 +108,72 @@
         </code>
         </pre>
       </li>
+
+      <li class="code-block" onClick='toggleBlock(event)'>
+        To be a senior, a member must be at least 55 years old and have a handicap greater than 7.
+        
+        Input will consist of a list of lists containing two items each. Each list contains information for a single potential member. Information consists of an integer for the person's age and an integer for the person's handicap.
+        
+        Output should display whether the memeber is in the "Open" category or "Senior" category.
+
+        <pre class="large">
+        <code>
+          function openOrSenior(data){
+            var results = [];
+            
+            if (data.length === 0) return results;
+            
+            data.forEach(function(member) {
+              if (member[0] >54 && member[1] > 7) {
+                results.push('Senior');
+              } else {
+                results.push('Open');
+              }
+            });
+            
+            return results;
+          }
+        </code>          
+        </pre>
+      </li>
+
+      <li class="code-block" onClick='toggleBlock(event)'>
+        Alter the String prototype to have a function that will capitalize the first letter of every word.
+        <pre class="small">
+        <code>
+          String.prototype.toJadenCase = function() {
+            return this.valueOf().split(' ').map(word => (word[0].toUpperCase() + word.slice(1))).join(' ');
+          } 
+        </code>
+        </pre>
+      </li>
+
+      <li class="code-block" onClick='toggleBlock(event)'>
+          Write a function to solve for n:
+
+          n^3 + (n-1)^3 + ... + 1^3 = m
+
+        <pre class="small">
+        
+        <code>
+          var findN = function(m) {
+          var n = 1;
+          var prev = 0;
+          var check = 1;
+
+          while (check <= m) {
+            if (check === m) {
+              return n;
+            }
+            prev = check;
+            n++;
+            check = Math.pow(n,3) + prev;
+          } 
+          return -1;
+        } 
+        </code>
+        </pre>
+      </li>
   </ol>
 </div>
 
