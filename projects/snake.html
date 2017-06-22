@@ -1,116 +1,155 @@
 <html>
-	<head>
-		<style>
-			body, html {
-				height: 100%;
-				margin: 0px;
-			}
-			body {
-				display: flex;
-				background-color: black;
-				align-items: center;
-				justify-content: center;
-			}
+  <head>
+    <style>
+      body, html {
+        height: 100%;
+        margin: 0px;
+      }
+      body {
+        background-color: black;
+        color: white;
+        font-family: Verdana;
+        text-align: center;
+      }
+      
+      #scoreBoard {
+        text-align: center;
+        padding-top: 50px;
+      }
 
-			canvas {
-				border: 2px solid white;
-			}
-		</style>
-	</head>
-	<body>
-		<canvas width=400 height=400></canvas>
-		<script>
-			var canvas = document.querySelector('canvas');
-			var context = canvas.getContext('2d');
-			var grid = 16;
+      #gameOver {
+        text-align: center;
+        margin-bottom: 50px;
+      }
 
-			// characters
-			var snake = {
-				x: 160,
-				y: 160,
-				dx: grid,
-				dy: 0,
-				segments: [],
-				maxLength: 4
-			};
-			
-			var apple = {
-				x: 320,
-				y: 320
-			}
+      button {
+        padding: 10px;
+      }
 
-			var counter = 0;
+      canvas {
+        border: 2px solid white;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="scoreBoard">
+      <h1>Score: <span id="score">0</span></h1>
+      <div id="gameOver" hidden>
+        <h2>Game Over.</h2>
+        <button onclick="window.location.reload()">Retry</button>
+      </div>
+    </div>
 
-			// game loop
-			function frame() {
-				requestAnimationFrame(frame);
-				counter++;
+    <canvas width=400 height=400></canvas>
+    <script>
+      var canvas = document.querySelector("canvas");
+      var context = canvas.getContext("2d");
+      var grid = 16;
+      var frameId = null;
+      var score = 0;
 
-				// make loop 15 fbs
-				if (counter < 5) return;
+      // characters
+      var snake = {
+        x: 160,
+        y: 160,
+        dx: grid,
+        dy: 0,
+        segments: [],
+        maxLength: 4
+      };
+      
+      var apple = {
+        x: 320,
+        y: 320
+      }
 
-				// loop bounds
-				// x
-				if (snake.x > canvas.width) {
-					snake.x = 0
-				} else if (snake.x < 0) {
-					snake.x = canvas.width - grid;
-				} else {
-					snake.x += snake.dx;
-				}
-				// y
-				if (snake.y > canvas.height) {
-					snake.y = 0
-				} else if (snake.y < 0) {
-					snake.y = canvas.height - grid;
-				} else {
-					snake.y += snake.dy;
-				}
-				
-				// Add to the segments array
-				snake.segments.unshift({x: snake.x, y :snake.y});
-				// If we reached the snake size remove the last item
-				if (snake.segments.length > snake.maxLength) {
-					snake.segments.pop();
-				}
+      var counter = 0;
 
-				// reset counter and clear the screen
-				counter = 0;
-				context.clearRect(0, 0, canvas.width, canvas.height);
+      // game loop
+      function frame() {
+        frameId = requestAnimationFrame(frame);
+        counter++;
 
-				// Draw apple
-				context.fillStyle = 'red';
-				context.fillRect(apple.x, apple.y, grid, grid);
+        // make loop 15 fbs
+        if (counter < 5) return;
 
-				// Eating the apple
-				if (snake.x === apple.x && snake.y === apple.y) {
-					snake.maxLength++;
-				}
+        // loop bounds
+        // x
+        if (snake.x > canvas.width) {
+          snake.x = 0
+        } else if (snake.x < 0) {
+          snake.x = canvas.width - grid;
+        } else {
+          snake.x += snake.dx;
+        }
+        // y
+        if (snake.y > canvas.height) {
+          snake.y = 0
+        } else if (snake.y < 0) {
+          snake.y = canvas.height - grid;
+        } else {
+          snake.y += snake.dy;
+        }
+        
+        // Add to the segments array
+        snake.segments.unshift({x: snake.x, y :snake.y});
+        // If we reached the snake size remove the last item
+        if (snake.segments.length > snake.maxLength) {
+          snake.segments.pop();
+        }
 
-				// Draw snake
-				context.fillStyle = 'green';
-				snake.segments.forEach(function(segment, index) {
-					context.fillRect(segment.x, segment.y, grid - 1, grid - 1);	
-				});
+        // reset counter and clear the screen
+        counter = 0;
+        context.clearRect(0, 0, canvas.width, canvas.height);
 
-				// arrow key listeners
-				document.addEventListener('keydown', function(e) {
-					if (e.which === 37) {
-						snake.dx = -grid;
-						snake.dy = 0;
-					} if (e.which === 40) {
-						snake.dy = grid;
-						snake.dx = 0;
-					} if (e.which === 39) {
-						snake.dx = grid;
-						snake.dy = 0;
-					} if (e.which === 38) {
-						snake.dy = -grid;
-						snake.dx = 0;
-					}
-				})
-			}
-			requestAnimationFrame(frame);
-		</script>
-	</body>
+        // Draw apple
+        context.fillStyle = 'red';
+        context.fillRect(apple.x, apple.y, grid, grid);
+
+        // Check for collision with self
+        snake.segments.forEach((segment, i) => {
+          if (snake.x === segment.x && snake.y === segment.y && i !== 0) {
+            cancelAnimationFrame(frameId);
+            document.querySelector('#gameOver').removeAttribute('hidden');
+          }
+        })
+
+        eatApple();       
+
+        // Draw snake
+        context.fillStyle = 'green';
+        snake.segments.forEach(function(segment, index) {
+          context.fillRect(segment.x, segment.y, grid - 1, grid - 1); 
+        });
+
+        // arrow key listeners
+        document.addEventListener('keydown', function(e) {
+          if (e.which === 37) {
+            snake.dx = -grid;
+            snake.dy = 0;
+          } if (e.which === 40) {
+            snake.dy = grid;
+            snake.dx = 0;
+          } if (e.which === 39) {
+            snake.dx = grid;
+            snake.dy = 0;
+          } if (e.which === 38) {
+            snake.dy = -grid;
+            snake.dx = 0;
+          }
+        })
+      }
+      requestAnimationFrame(frame);
+
+      function eatApple() {
+        if (snake.x === apple.x && snake.y === apple.y) {
+          snake.maxLength++;
+          score += 100;
+          document.querySelector('#score').innerHTML = score;
+          apple.x = Math.floor(Math.random() * (24)) * 16;
+          apple.y = Math.floor(Math.random() * (24)) * 16;
+        }
+      }
+    </script>
+  </body>
 </html>
