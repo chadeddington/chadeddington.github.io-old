@@ -63,7 +63,7 @@ code {
 
 
 .page {
-	height: 100%;
+  background-color: white;
 }
 
 .page-title {
@@ -82,7 +82,7 @@ code {
 
 .page-home {
 	background-image: url('../assets/images/home.jpg');
-	background-position-y: -50px; 
+	background-position-y: -50px;
 }
 
 .page-skills {
@@ -91,7 +91,7 @@ code {
 
 .page-sand {
 	background-image: url('../assets/images/sand.jpg');
-	background-position-y: -150px; 
+	background-position-y: -150px;
 }
 
 .page-projects {
