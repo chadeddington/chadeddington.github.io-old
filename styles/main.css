@@ -35,7 +35,7 @@ pre {
 	background-color: black;
 }
 
-code {
+pre > code {
   font-size: 18px;
   color: springgreen;
 }
@@ -108,6 +108,10 @@ code {
 .title {
 	margin-left: 50px;
 	font-size: 36px;
+}
+
+.apprentice-list ol li {
+  margin: 10px 0px;
 }
 
 .skills-item {

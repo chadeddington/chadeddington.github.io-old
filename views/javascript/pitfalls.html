@@ -1,0 +1,160 @@
+<div class="page-title page-skills">
+  <h1>JavaScript Common Pifalls</h1>
+     </div>
+
+<div class="page-content">
+  <h3>Global Variaibles</h3>
+  <ul>
+    <li>Name collision</li>
+  </ul>
+
+  <h3>Scope</h3>
+  <ul>
+    <li>JavaScript does not have block scope with vars</li>
+  </ul>
+
+  <h3>Semicolon Insertion</h3>
+  <ul>
+    <li>
+      Don't rely on JavaScript to automatically insert your
+      semicolons. It can put them where you didn't intent and cause
+      problems
+    </li>
+  </ul>
+
+  <h3>Reserved Words</h3>
+  <ul>
+    <li>
+      Reserved words cannot be used as key names for object literals using the
+       dot notation. They have to be used with the bracket notation instead
+     </li>
+     <li>
+       <pre>
+       <code>
+         object = {'case': value}; // ok
+         object = {case: value};   // illegal
+         object.case = value;      // illegal
+         object['case'] = value;   // ok
+       </code>
+       </pre>
+     </li>
+  </ul>
+
+  <h3>typeof</h3>
+  <ul>
+    <li>
+      <code>typeof null</code> returns <code>'object'</code>
+    </li>
+    <li>
+      <code>null</code> will be falsy
+      <pre>
+        <code>
+          if(myValue && typeof myValue === 'object')
+        </code>
+      </pre>
+    </li>
+    <li>
+      One sure way to get value's type:
+      <pre>
+        <code>
+          Object.prototype.toString.call([]);             // [object Array]
+          Object.prototype.toString.call({});             // [object Object]
+          Object.prototype.toString.call('');             // [object String]
+          Object.prototype.toString.call(new Date());     // [object Date]
+          Object.prototype.toString.call(1);              // [object Number]
+          Object.prototype.toString.call(function () {}); // [object Function]
+          Object.prototype.toString.call(/test/i);        // [object RegExp]
+          Object.prototype.toString.call(true);           // [object Boolean]
+          Object.prototype.toString.call(null);           // [object Null]
+          Object.prototype.toString.call();               // [object Undefined]
+        </code>
+      </pre>
+    </li>
+  </ul>
+
+  <h3>parseInt</h3>
+  <ul>
+    <li>
+      <code>parseInt</code> will return 5 from "5 tons"
+    </li>
+    <li>
+      <code>parseInt</code> will return a base8 number if the first character in the string is a 0
+    </li>
+    <li>
+      For the reason above always provide the radix parameter to specify base 10 (if thats what you're wanting)
+      <pre>
+        <code>
+          parseInt("08", 10)    // returns 8
+        </code>
+      </pre>
+    </li>
+  </ul>
+
+  <h3>Floating Point</h3>
+  <ul>
+    <li>
+      0.1 + 0.3 doesn't equal exactly 3
+    </li>
+  </ul>
+
+  <h3>NaN</h3>
+  <ul>
+    <li>
+      Ironic that <code>typeof NaN === 'number' // true </code>
+    </li>
+    <li>
+      <pre>
+        <code>
+          NaN === NaN         // false
+          NaN !== NaN         // true
+          isNaN(NaN)          // true
+          isNaN(0)            // false
+          isNaN('oops')       // true
+          isNaN('0')          // false
+          null === 0          // false
+          null === undefined  // true
+        </code>
+      </pre>
+    </li>
+  </ul>
+
+  <h3>Arrays</h3>
+  <ul>
+    <li>
+      Arrays in JavaScript aren't real arrays.
+    </li>
+    <li>
+      <pre>
+        <code>
+          if (myArray && typeof myArray === 'object' && myArray.constructor === Array)
+        </code>
+      </pre>
+    </li>
+  </ul>
+
+  <h3>Falsy Values</h3>
+  <ul>
+    <li>
+      <code>0</code>
+    </li>
+    <li>
+      <code>''</code>
+    </li>
+    <li>
+      <code>NaN</code>
+    </li>
+    <li>
+      <code>false</code>
+    </li>
+    <li>
+      <code>null</code>
+    </li>
+    <li>
+      <code>undefined</code>
+    </li>
+    <li>
+      If looking for a missing property you would use <code>undefined</code> not <code>null</code>
+    </li>
+  </ul>
+
+</div>
