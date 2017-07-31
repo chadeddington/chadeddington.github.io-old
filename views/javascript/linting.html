@@ -1,0 +1,37 @@
+<div class="page-title page-skills">
+  <h1>JavaScript Linting</h1>
+</div>
+
+<div class="page-content">
+  <ul>
+    <li>
+      npm install eslint and babel then copy the linting rules from <code>fs-javascript/linters</code> repo ✔
+      <pre>
+      <code>
+        npm install --save-dev \
+        eslint \
+        babel-eslint \
+        fs-webdev/fs-javascript && \
+        cp ./node_modules/fs-javascript/linters/eslint-default.txt .eslintrc && \
+        cp ./node_modules/fs-javascript/linters/.eslintignore .eslintignore
+      </code>
+      </pre>
+    </li>
+    <li>
+      Setup ESLint plugin for Editor (linter-eslint for Atom) ✔
+    </li>
+    <li>
+      Have a <code>.eslintignore</code> to avoid checking things like <code>node_modules</code> ✔
+    </li>
+    <li>
+      Ran linter and discovered that the fs lint config states we should use single quotes for strings ✔
+    </li>
+  </ul>
+  <h3>Notes: </h3>
+  <ul>
+    <li>
+      ESLint will use the closest config file and then go up through the tree back to root applying configs. To prevent this
+      you can put <code>"root": true</code> in your config file.
+    </li>
+  </ul>
+</div>
