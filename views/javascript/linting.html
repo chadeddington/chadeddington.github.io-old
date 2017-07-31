@@ -18,20 +18,27 @@
       </pre>
     </li>
     <li>
+      Setup <code>.eslintignore</code> specific to your app ✔
+    </li>
+    <li>
       Setup ESLint plugin for Editor (linter-eslint for Atom) ✔
     </li>
     <li>
-      Have a <code>.eslintignore</code> to avoid checking things like <code>node_modules</code> ✔
-    </li>
-    <li>
-      Ran linter and discovered that the fs lint config states we should use single quotes for strings ✔
+      Make a way to run ESLint against your project files on changes
     </li>
   </ul>
-  <h3>Notes: </h3>
-  <ul>
+
+  <h3 style="margin-bottom: 0px;">Notes: </h3>
+  <ul style="margin-top: 5px;">
+    <li>
+      Have a <code>.eslintignore</code> to avoid checking things like <code>node_modules</code>
+    </li>
     <li>
       ESLint will use the closest config file and then go up through the tree back to root applying configs. To prevent this
       you can put <code>"root": true</code> in your config file.
+    </li>
+    <li>
+      Ran linter and discovered that the fs lint config states we should use single quotes for strings
     </li>
   </ul>
 </div>
