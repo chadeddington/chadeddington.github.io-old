@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Phaser - Making your first game, part 1</title>
+	<script type="text/javascript" src="../lib/phaser.min.js"></script>
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var game = new Phaser.Game(800, 600, Phaser.CANVAS, '', { preload: preload, create: create, update: update });
+
+function preload() {
+  console.log('game', this.game);
+	// load the assets
+  game.load.tilemap('map', 'assets/zelda_tilemap.json', null, Phaser.Tilemap.TILED_JSON);
+  game.load.image('tiles', 'assets/zelda_village.png');
+  game.load.atlasJSONHash('linkSprite', 'assets/link.png','assets/link.json');
+}
+
+function create() {
+  game.physics.startSystem(Phaser.Physics.ARCADE);
+
+  map = game.add.tilemap('map');
+  map.addTilesetImage('zelda_village', 'tiles');
+  layer = map.createLayer('Tile Layer 1');
+  layer.scale.x = 2;
+  layer.scale.y = 2;
+  layer.resizeWorld();
+
+  // Link Character
+  this.link = game.add.sprite(368, 268, 'linkSprite', 'walkDown_0.png');
+
+  game.physics.arcade.enable(this.link);
+  this.game.camera.follow(this.link);
+
+  this.link.animations.add('walkDown', Phaser.Animation.generateFrameNames('walkDown_', 0, 11,'.png'), 10, false, false);
+  this.link.animations.add('walkUp', Phaser.Animation.generateFrameNames('walkUp_', 0, 11,'.png'), 10, false, false);
+
+  this.link.scale.x = 2;
+  this.link.scale.y = 2;
+
+  // Controls
+  this.cursors = this.game.input.keyboard.createCursorKeys();
+  console.log('link: ', this.link);
+  console.log(this.cursors)
+}
+
+function update() {
+  var arrows = this.cursors;
+  if (arrows.left.isDown) {
+    this.link.position.x -= 2;
+  }
+  if (arrows.right.isDown) {
+    this.link.position.x += 2;
+  }
+  if (arrows.up.isDown) {
+    this.link.animations.play('walkUp');
+    this.link.position.y -= 2;
+  } else {
+    this.link.animations.stop('walkUp');
+  }
+  if (arrows.down.isDown) {
+    // play animation
+    this.link.animations.play('walkDown');
+    this.link.position.y += 2;
+  } else {
+    this.link.animations.stop('walkDown');
+  }
+
+
+
+}
+
+</script>
+
+</body>
+</html>

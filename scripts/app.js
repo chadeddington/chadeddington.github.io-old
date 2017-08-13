@@ -12,11 +12,11 @@
     page.innerHTML = '';
     fetch(view)
       .then(function(response) {
-        return response.text()
+        return response.text();
       }).then(function(body) {
-        page.innerHTML = body
-      })
-  }
+        page.innerHTML = body;
+      });
+  };
 
   // Router
   router = function(val) {
