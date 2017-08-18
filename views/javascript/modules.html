@@ -1,0 +1,107 @@
+<div class="page-title page-skills">
+  <h1>JavaScript Module Formats</h1>
+</div>
+
+<div class="page-content">
+  <h3>CommonJS Modules</h3>
+    Unlike AMD modules there are typically no function wrappers. This style uses
+    <code>require</code> and <code>exports</code>. There is a disagreement about
+    whether CommonJS modules should be used in the browser. It is supported in node.js
+    <pre>
+    <code>
+      // define more behaviour we would like to expose
+      function foobar(){
+        this.foo = function(){
+          console.log( "Hello foo" );
+        }
+
+        this.bar = function(){
+          console.log( "Hello bar" );
+        }
+      }
+
+      // expose foobar to other modules
+      exports.foobar = foobar;
+
+      // an application consuming "foobar"
+
+      // access the module relative to the path
+      // where both usage and module files exist
+      // in the same directory
+
+      var foobar = require("./foobar").foobar,
+          test   = new foobar();
+
+      // Outputs: "Hello bar"
+      test.bar();
+    </code>
+    </pre>
+  <h3>ES6 Harmony Modules</h3>
+    <ul>
+      <li>
+        <code>export</code> declarations declare that a local-binding of a module is externally visible such that other modules may read the exports but can't modify them.
+        <pre>
+        <code>
+          module staff{
+            export var baker = {
+              bake: function( item ){
+                console.log( "I love baking" );
+              }
+            }
+          }
+        </code>
+        </pre>
+      </li>
+      <li>
+        <code>import</code> declarations bind a modules exports as local variables and may be renamed to avoid name collisions/conflicts.
+        <pre>
+        <code>
+          import baker from staff;
+        </code>
+        </pre>
+      </li>
+    </ul>
+  <h3>JavaScript Modules the ES6 Way</h3>
+    ES6 comes with a way to create and use modules built in
+    <pre>
+    <code>
+      export function doubl(x) {
+        return x + x;
+      };
+      // can also export variables
+      // they need to be wrapped in curly braces
+      var double = function(x) {
+        return x + x;
+      };
+
+      export { double };
+
+      ...
+
+      import { double } from 'mymodule';
+    </code>
+    </pre>
+    Default exports
+    <pre>
+    <code>
+      export default function(x) {
+        return x + x;
+      }
+      ...
+
+      import double from 'mymodule';
+    </code>
+    </pre>
+
+    A programmatic way to import modules is being added
+
+    <pre>
+    <code>
+      if(someFeatureNotSupported) {
+        System.import('my-polyfill').then(function(myPolyFill) {
+          // use the module from here
+        });
+      }
+    </code>
+    </pre>
+</div>
