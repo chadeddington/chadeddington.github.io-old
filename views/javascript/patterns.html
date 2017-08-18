@@ -1,0 +1,150 @@
+<div class="page-title page-skills">
+  <h1>JavaScript Essential Patterns</h1>
+</div>
+
+<div class="page-content">
+  <h3>Contructors</h3>
+  <pre>
+  <code>
+    var newObject = {};
+    var newObject = Object.create(Object.prototype);
+    var newObject = new Object();
+
+    // Constructor
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+    }
+
+    // Initialize
+    var me = new Person('Chad', 27);
+
+    // Prototype (an object that all instances will have)
+    function Person(name, age) {
+      this.name = name;
+      this.age = age;
+
+      Person.prototype.sayHi = function() {
+        return 'Hello, my name is ' + this.name;
+      }
+    }
+  </code>
+  </pre>
+  <h3>Singletons</h3>
+    A singleton prevents multiple instances of a class from being created
+  <pre>
+  <code>
+    // Example:
+    // Wrapped in IIFE
+    var mysingleton = (function() {
+      var instance;
+      function init() {
+        function someMethod() {
+          // this is a private method
+        }
+        var someVariable = 'This is a private variable'
+
+        return {
+          num: Math.random(),
+          someMethod: function() {
+            // this is a public function
+            return num;
+          }
+        };
+      };
+
+      return {
+        getInstance: function() {
+          if (!instance) {
+            instance = init();
+          }
+
+          return instance;
+        }
+      }
+    })()
+  </code>
+  </pre>
+  <h3>Facades</h3>
+    The Facade pattern is used to give a higher level look at some underlying
+    more complicated code. jQuery is a good example of this. It's good to note
+    that performance can be affected though. <code>getElementById('ident')</code>
+    is much faster than <code>$('#ident')</code>
+    <pre>
+    <code>
+      var addMyEvent = function( el,ev,fn ){
+       if (el.addEventListener ){
+          el.addEventListener( ev,fn, false );
+       } else if(el.attachEvent){
+          el.attachEvent( "on" + ev, fn );
+       } else{
+          el["on" + ev] = fn;
+       }
+     };
+    </code>
+    </pre>
+  <h3>Modules</h3>
+    Modules are based in part on object literals: <code> {somefunction: function() {//...}}</code>
+    They allow for privacy by using closures and just returning a public API. There are many different
+    options for implementing modules:
+    <ul>
+      <li>The Module Pattern</li>
+      <li>Object literal notation</li>
+      <li>AMD modules</li>
+      <li>CommonJS modules</li>
+      <li>ECMAScript Harmony modules</li>
+    </ul>
+    <pre>
+    <code>
+      var myModule = (function() {
+        var privateVar = 'something private';
+        var privateFunc = function() { return 'private function'};
+
+        return {
+          publicFun: function() { return 'public function'}
+        }
+      })()
+
+      myModule.publicFun();
+    </code>
+    </pre>
+
+  <h3>Revealing Modules</h3>
+    This is a variation on the module pattern where we define all of our variables
+    and functions in the private scope and then reveal the ones we want to be public
+    in the returned object literal
+    <pre>
+    <code>
+      var myRevealingModule = (function () {
+
+        var privateVar = 23;
+
+        function privateFunction() {
+            console.log( "Number:" + privateVar );
+        }
+
+        function publicSetNumber(number) {
+            privateVar = number;
+        }
+
+        function publicGetNumber() {
+            privateFunction();
+        }
+
+        // Reveal public pointers to
+        // private functions and properties
+
+        return {
+            setNumber: publicSetNumber,
+            getNumber: publicGetNumber
+        };
+
+      })();
+
+      myRevealingModule.setNumber(100);
+    </code>
+    </pre>
+
+    <h3>Learning JavaScript</h3>
+      <a href="https://github.com/iangilman/learning-javascript">More Learning Resources</a>
+</div>
