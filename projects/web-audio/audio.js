@@ -16,7 +16,9 @@
   let micSelect = document.querySelector('#micSelect');
   let stream = null;
   let tested = false;
-  let encoder = null;
+  // let encoder = null;
+  let worker = new Worker('EncoderWorker.js');
+  worker.onmessage = function(event) { saveRecording(event.data.blob); };
   
   try {
     window.stream = stream = await getStream();
@@ -102,11 +104,12 @@
           context.close();
         }
       }
+      worker.postMessage({ command: 'record', buffers: getBuffers(event) });
       // we clone the samples
       leftchannel.push(new Float32Array(left));
       rightchannel.push(new Float32Array(right));
       recordingLength += bufferSize;
-      encoder.encode(getBuffers(e));
+      // encoder.encode(getBuffers(e));
     };
     visualize();
   };
@@ -120,16 +123,34 @@
 
   function start() {
     recording = true;
-    document.querySelector('#msg').style.visibility = 'visible'
+    document.querySelector('#msg').style.visibility = 'visible';
     // reset the buffers for the new recording
     leftchannel.length = rightchannel.length = 0;
     recordingLength = 0;
     console.log('context: ', !!context);
     if (!context) setUpRecording();
-    if (!encoder) {
-      // Create the MP3 encoder
-      encoder = new Mp3LameEncoder(context.sampleRate, 160);
-    }
+    // if (!encoder) {
+    //   // Create the MP3 encoder
+    //   encoder = new Mp3LameEncoder(context.sampleRate, 160);
+    // }
+    worker.postMessage({
+      command: 'start',
+      sampleRate: context.sampleRate,
+      bitRate: 160
+    });
+    // recorder.onaudioprocess = function(event) {
+    //   worker.postMessage({ command: 'record', buffers: getBuffers(event) });
+    // };
+  }
+
+  function saveRecording(blob) {
+    const audioUrl = URL.createObjectURL(blob);
+    console.log('BLOB ', blob);
+    console.log('URL ', audioUrl);
+    document.querySelector('#audio').setAttribute('src', audioUrl);
+    const link = document.querySelector('#download');
+    link.setAttribute('href', audioUrl);
+    link.download = 'output.mp3';
   }
 
   function stop() {
@@ -138,17 +159,8 @@
     document.querySelector('#msg').style.visibility = 'hidden'
 
     // encoder from mp3-lame-encoder-js
-    const blob = encoder.finish();
-
-    // our final binary blob
-    
-    const audioUrl = URL.createObjectURL(blob);
-    console.log('BLOB ', blob);
-    console.log('URL ', audioUrl);
-    document.querySelector('#audio').setAttribute('src', audioUrl);
-    const link = document.querySelector('#download');
-    link.setAttribute('href', audioUrl);
-    link.download = 'output.mp3';
+    worker.postMessage({ command: 'finish' });
+    // const blob = encoder.finish();
   }
   
   // Visualizer function from
