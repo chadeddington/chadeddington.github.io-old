@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Web Audio</title>
+  <link rel="stylesheet" href="audio.css">
+</head>
+<body>
+  <div class="app">
+    <select name="" id="micSelect"></select>
+  
+    <select id="visSelect">
+      <option value="frequencybars">Bar</option>
+      <option value="sinewave">Wave</option>
+      <option value="circle">Circle</option>
+    </select>
+  
+    <a id="download" >Download</a>
+  
+    <div class="audio-controls">
+      <button id="record">Record</button>
+      <button id="stop">Stop</button>
+      <audio id="audio" controls></audio>
+    </div>
+  
+    <div id="msg">Recording...</div>
+    <canvas width="500" height="300"></canvas>
+  <div>
+  <script>
+    // default path is on the same directory as this HTML
+    Mp3LameEncoderConfig = {
+      memoryInitializerPrefixURL: "mp3-lame-encoder-js/lib/"   // must end with slash
+      // => changed to javascripts/Mp3LameEncoder.min.js.mem
+    };
+  </script>
+  <script src="mp3-lame-encoder-js/lib/Mp3LameEncoder.min.js"></script>
+  <script src="audio.js"></script>
+</body>
+</html>
