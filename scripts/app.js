@@ -36,10 +36,6 @@
 
 })();
 
-function toggleBlock(e) {
-  e.target.classList.contains('show') ? e.target.classList.remove('show') : e.target.classList.add('show');
-}
-
 function debugCode() {
 	var message = 'Testing';
 	document.querySelector('#testMessage').innerText = message;

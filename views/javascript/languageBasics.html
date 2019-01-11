@@ -1,3 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    pre {
+      overflow-x: scroll;
+      background-color: black;
+    }
+
+    code {
+      font-size: 16px;
+      background-color: #EEEEEE;
+    }
+
+    pre > code {
+      font-size: 16px;
+      color: lightgrey;
+      background-color: black;
+    }
+
+    .container, pre {
+      text-align: left;
+    }
+    li.code-block {
+      margin-top: 20px;
+    }
+
+    li.code-block:hover {
+      cursor: pointer;
+    }
+
+    li.code-block pre {
+      height: 0px;
+      transition: height .5s;
+    }
+
+    li.show pre.small {
+      height: 200px;
+      transition: height .5s;
+    }
+
+    li.show pre.large {
+      height: 400px;
+      transition: height .5s;
+    }
+  </style>
+</head>
+<body>
+  
+
 <div class="page-title page-skills">
     <h1>Language Basics</h1>
 </div>
@@ -224,4 +278,13 @@
         </pre>
       </li>
   </ol>
+
+  <script>
+    function toggleBlock(e) {
+      e.target.classList.contains('show') ? e.target.classList.remove('show') : e.target.classList.add('show');
+    }
+  </script>
 </div>
+
+</body>
+</html>

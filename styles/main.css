@@ -30,26 +30,6 @@ h1 {
 	font-size: 42px;
 }
 
-pre {
-	overflow-x: scroll;
-	background-color: black;
-}
-
-code {
-  font-size: 16px;
-  background-color: #EEEEEE;
-}
-
-pre > code {
-  font-size: 16px;
-  color: lightgrey;
-  background-color: black;
-}
-
-.container, pre {
-	text-align: left;
-}
-
 .header {
 	color: white;
 	background-color: black;
@@ -128,28 +108,7 @@ pre > code {
 	color: blue;
 }
 
-li.code-block {
-	margin-top: 20px;
-}
 
-li.code-block:hover {
-	cursor: pointer;
-}
-
-li.code-block pre {
-	height: 0px;
-	transition: height .5s;
-}
-
-li.show pre.small {
-	height: 200px;
-	transition: height .5s;
-}
-
-li.show pre.large {
-	height: 400px;
-	transition: height .5s;
-}
 
 
 @media (max-width: 767px) {

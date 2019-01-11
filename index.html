@@ -1,14 +1,4 @@
 <!doctype html>
-<!--
-@license
-Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <html>
 
 <head>
@@ -18,39 +8,30 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <title>chadeddington</title>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles/main.css">
-
- <!-- Web Component Polyfil -->
-  <script src="components/webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="components/polymer/polymer.html">
-
-  <link rel="import" href="elements/elements.html">
-  <!-- Fetch Polyfil -->
-  <!-- <script src="/bower_components/fetch/fetch.js"></script> -->
+  <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
-  <app-header-layout>
-    <app-header class="header" slot="header" fixed  fullbleed condenses effects="waterfall">
-      <app-toolbar>
-        <div main-title>Chad Eddington</div>
-        <div id='nav'>
-          <a class="nav-link" href="#/home">Home</a>
-          <a class="nav-link" href="#/blog">Blog</a>
-          <a class="nav-link" href="#/projects">Projects</a>
-          <a class="nav-link" href="#/sandbox">Sandbox</a>
-          <a class="nav-link" href="#/skills">Skills</a>
-        </div>
-        <nav-menu></nav-menu>
-      </app-toolbar>
-    </app-header>
-    <div class="main-content">
-      <!-- Main content -->
-      <div id="page" class="page"></div>
+  <div class="container">
+    <div class="hero">
+      <h1>chadeddington.github.io</h1>
+      <h3>A Sample github.io page</h3>
     </div>
-  </app-header-layout>
-
-<script type="text/javascript" src='scripts/app.js'></script>
+  
+    <main>
+      <h3>Games</h3>
+      <div class="link"><a href="projects/phaser/zelda">Phaser Game Engine: Zelda</a></div>
+      <div class="link"><a href="projects/phaser/phaser-dude/phaser-dude.html">Phaser Game Engine: Phaser Dude</a></div>
+      <div class="link"><a href="projects/melon">Melon Game Engine</a></div>
+      <div class="link"><a href="projects/snake.html">HTML Game: Snake</a></div>
+  
+      <h3>Other</h3>
+      <div class="link"><a href="https://chadeddington.github.io/sprites/">Sprite Animation</a></div>
+      <div class="link"><a href="https://chadeddington.github.io/isometric/">Isometric View</a></div>
+      <div class="link"><a href="projects/web-audio">Using Web Audio</a></div>
+    </main>
+  </div>
+  
 
 </body>
 </html>
