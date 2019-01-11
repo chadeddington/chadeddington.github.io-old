@@ -17,8 +17,19 @@ main {
 
 .hero {
   text-align: center;
-  margin-bottom: 50px;
+  margin: 50px 0px 100px 0px;
+}
+
+h1, h2 {
   color: #4caf50;
+}
+
+.links {
+  display: flex;
+  justify-content: space-around;
+}
+
+.column {
 }
 
 .link {
@@ -31,4 +42,13 @@ main {
 
 .link a:visited {
   color: blue;
+}
+
+@media (max-width: 550px) {
+  .links {
+    flex-wrap: wrap;
+  }
+  .column {
+    width: 100%;
+  }
 }
