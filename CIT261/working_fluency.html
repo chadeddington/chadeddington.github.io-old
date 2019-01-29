@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Working Fluency</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    h2 {
+      margin-top: 0px;
+    }
+    .container {
+      padding: 0px 50px;
+    }
+
+    .wrapper {
+      padding: 20px;
+      border: 1px solid grey;
+      margin: 50px 0px;
+    }
+  </style>
+  <script>
+    var names = [];
+
+    function calc() {
+      let num1 = document.querySelector('#num1').value;
+      let num2 = document.querySelector('#num2').value;
+      multiply(num1, num2)
+    }
+
+    function multiply(a, b) {
+      let num = a * b;
+      document.querySelector('#multiply').innerText = num;
+    }
+
+    function count() {
+      let num = document.querySelector('#countNum').value || 0;
+      let count = document.querySelector('#count');
+      count.innerHTML = '';
+
+      for (let i = 1; i <= num; i++) {
+        count.innerHTML += i  + '<br />';
+      }
+    }
+
+    function addName() {
+      let name = document.querySelector('#name').value;
+      if (!name) return;
+      names.push(document.querySelector('#name').value);
+      document.querySelector('#arrayLength').innerText = names.length;
+      document.querySelector('#names').innerText = JSON.stringify(names);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+      <h1>Working Fluency Example</h1>
+
+    <div class="wrapper">
+      <h2>Arrays</h2>
+      <h4>Current Array: </h4>
+      <div id="names">[]</div>
+      <h4>Current Length: <span id="arrayLength">0</span></h4>
+      <input id="name" type="text" autocomplete="off">
+      <button onclick="addName()">Add</button>
+    </div>
+    
+    <div class="wrapper">
+      <h2>Functions</h2>
+      <input id="num1" type="number">
+      <input id="num2" type="number">
+      <span id="multiply"></span>
+      <br>
+      <button onclick="calc()">Multiply</button>
+      
+    </div>
+
+    <div class="wrapper">
+      <h2>Loops</h2>
+      <span>Count to: </span> <input id="countNum" type="number">
+      <button onclick="count()">Count</button>
+      <div id="count"></div>
+
+    </div>
+  </div>
+  
+</body>
+</html>

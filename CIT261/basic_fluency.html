@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Basic Fluency</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    pre {
+      padding: 10px;
+      background-color: #eee;
+    }
+    .container {
+      padding: 0px 50px;
+    }
+  </style>
+  <script>
+    function multiply() {
+      var num = 2 * 25;
+      document.querySelector('#multiply').innerText = num;
+    }
+
+    function count() {
+      for (var i = 1; i < 11; i++) {
+        var count = document.querySelector('#count');
+        count.innerHTML += i  + '<br />';
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Basic Fluency Example</h1>
+    <h2>Arrays</h2>
+    <pre>
+    <code>
+      var names = ['Tony Starks', 'Peter Parker', 'Steve Rogers'];
+    </code>
+    </pre>
+
+    <h2>Functions</h2>
+    <pre>
+    <code>
+      function multiply() {
+        var num = 2 * 25;
+        document.querySelector('#multiply').innerText = num;
+      }
+    </code>
+    </pre>
+    <button onclick='multiply()'>Multiply</button>
+    <div id="multiply"></div>
+
+    <h2>Loops</h2>
+    <pre>
+    <code>
+      for (var i = 1; i < 11; i++) {
+        var count = document.querySelector('#count');
+        count.innerHTML += i + "&ltb /&gt";
+      }
+    </code>
+    </pre>
+    <button onclick="count()">Count</button>
+    <div id="count"></div>
+  </div>
+  
+</body>
+</html>
