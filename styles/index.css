@@ -1,54 +1,7 @@
-body {
-  font-family: sans-serif;
-}
-
-nav {
-  text-align: right;
-}
-
 main {
   padding: 10px 50px;
 }
 
-.container {
-  max-width: 1000px;
-  margin: auto;
-}
-
-.hero {
-  text-align: center;
-  margin: 50px 0px 100px 0px;
-}
-
 h1, h2 {
   color: #4caf50;
-}
-
-.links {
-  display: flex;
-  justify-content: space-around;
-}
-
-.column {
-}
-
-.link {
-  padding: 10px 0px;
-}
-
-.link a {
-  text-decoration: none;
-}
-
-.link a:visited {
-  color: blue;
-}
-
-@media (max-width: 550px) {
-  .links {
-    flex-wrap: wrap;
-  }
-  .column {
-    width: 100%;
-  }
 }

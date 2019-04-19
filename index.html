@@ -9,46 +9,48 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/header-footer.css">
+  <script type="module" src="web-components/my-footer.js"></script>
 </head>
 
 <body>
-  <div class="container">
+  <header>
     <div class="hero">
-      <h1>chadeddington.github.io</h1>
+      <h1><a href="index.html">chadeddington.github.io</a></h1>
       <h3>A sample github.io page</h3>
     </div>
-  
+  </header>
+  <div class="container">
     <main>
-      <h2 style="text-align: center;">My Sandbox</h2>
-
-      <div class="links">
-        <div class="column">
-          <h3>Games</h3>
-          <div class="link"><a href="projects/phaser/zelda">Phaser Game Engine: Zelda</a></div>
-          <div class="link"><a href="projects/phaser/phaser-dude/phaser-dude.html">Phaser Game Engine: Phaser Dude</a></div>
-          <div class="link"><a href="projects/melon">Melon Game Engine</a></div>
-          <div class="link"><a href="projects/snake.html">HTML Game: Snake</a></div>
-        </div>
-        
-        <div class="column">
-          <h3>Other</h3>
-          <div class="link"><a href="https://chadeddington.github.io/sprites/">Sprite Animation</a></div>
-          <div class="link"><a href="https://chadeddington.github.io/isometric/">Isometric View</a></div>
-          <div class="link"><a href="projects/web-audio">Using Web Audio</a></div>
-        </div>
-      </div>
-
-      <div class="links" style="margin-top: 50px">
-        <div class="column">
-          <h2 style="text-align: center;">CIT 261</h2>
-          <div class="link"><a href="CIT261/basic_fluency.html">Basic Fluency Example</a></div>
-          <div class="link"><a href="CIT261/working_fluency.html">Working Fluency Example</a></div>
-          <div class="link"><a href="CIT261/skilled_fluency.html">Skilled Fluency Example</a></div>
-        </div>
-      </div>
+      
     </main>
   </div>
+  <my-footer></my-footer>
   
+  <!-- <footer>
+    <div class="links">
+      <div class="column">
+        <h3 class="link">Games</h3>
+        <div class="link"><a href="projects/phaser/zelda">Zelda</a></div>
+        <div class="link"><a href="projects/phaser/phaser-dude/phaser-dude.html">Phaser Dude</a></div>
+        <div class="link"><a href="projects/snake.html">Snake</a></div>
+      </div>
+
+      <div class="column">
+        <h3 class="link"><a href="cit261/index.html">CIT 261</a></h3>
+        <div class="link"><a href="cit261/basic_fluency.html">Basic Fluency Example</a></div>
+        <div class="link"><a href="cit261/working_fluency.html">Working Fluency Example</a></div>
+        <div class="link"><a href="cit261/skilled_fluency.html">Skilled Fluency Example</a></div>
+      </div>
+      
+      <div class="column">
+        <h3 class="link">Misc</h3>
+        <div class="link"><a href="https://chadeddington.github.io/sprites/">Sprite Animation</a></div>
+        <div class="link"><a href="https://chadeddington.github.io/isometric/">Isometric View</a></div>
+        <div class="link"><a href="projects/web-audio">Using Web Audio</a></div>
+      </div>
+    </div>
+  </footer> -->
 
 </body>
 </html>

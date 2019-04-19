@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Basic Fluency</title>
+  <link rel="stylesheet" href="../styles/header-footer.css">
+  <script type="module" src="../web-components/my-footer.js"></script>
   <style>
     body {
       font-family: sans-serif;
@@ -17,6 +19,7 @@
       padding: 0px 50px;
     }
   </style>
+  
   <script>
     function multiply() {
       var num = 2 * 25;
@@ -32,6 +35,12 @@
   </script>
 </head>
 <body>
+  <header>
+    <div class="hero">
+      <h1><a href="../index.html">chadeddington.github.io</a></h1>
+      <h3>A sample github.io page</h3>
+    </div>
+  </header>
   <div class="container">
     <h1>Basic Fluency Example</h1>
     <h2>Arrays</h2>
@@ -65,6 +74,7 @@
     <button onclick="count()">Count</button>
     <div id="count"></div>
   </div>
+  <my-footer></my-footer>
   
 </body>
 </html>
