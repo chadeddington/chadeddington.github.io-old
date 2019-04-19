@@ -11,10 +11,13 @@
   <link rel="stylesheet" href="styles/index.css">
   <link rel="stylesheet" href="styles/header-footer.css">
   <script type="module" src="web-components/my-footer.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
   <style>
     main {
-      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: inherit;
     }
     p {
       padding: 50px;
@@ -22,11 +25,14 @@
       margin: auto;
       font-size: 28px;
       text-align: left;
-      font-family: 'Open Sans', sans-serif;
+      font-family: 'Karla', sans-serif;
       white-space: pre-line;
     }
+    .img-wrapper {
+      text-align: center;
+    }
     img {
-      margin-top: 20px;
+      margin: 20px 0px;
       border-radius: 50%;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.6),0 2px 10px 0 rgba(0,0,0,0.6);
     }
@@ -42,15 +48,19 @@
   </header>
   <div class="container">
     <main>
-      <img src="assets/images/standing_on_chair.JPG" alt="">
-      <p>Hello,
-
-        This is where I keep some of stuff. 
-
-        If I want to try something or test something out I'll often come put it somewhere on this site.
-
-        I've also got references for a class I teach and demonstrations for tracking skills.
-      </p>
+      <div class="group">
+        <div class="img-wrapper">
+            <img src="assets/images/standing_on_chair.JPG" alt="">
+          </div>
+          <p>Hello,
+    
+            This is where I keep some of stuff. 
+    
+            If I want to try something or test something out I'll often come put it somewhere on this site.
+    
+            I've also got references for a class I teach and demonstrations for tracking skills.
+          </p>
+      </div>
     </main>
   </div>
   <my-footer></my-footer>
