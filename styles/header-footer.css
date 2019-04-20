@@ -6,8 +6,14 @@ body {
 
 .hero {
   text-align: center;
-  border-bottom: 4px solid #2196f3;
-  padding-bottom: 10px;
+  /* border-bottom: 4px solid #2196f3; */
+  background-color: #2196f3;
+  padding: 20px 0px;
+}
+
+.hero h1 {
+  color: white;
+  margin: 0px;
 }
 
 .hero a {
