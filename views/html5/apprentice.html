@@ -59,12 +59,12 @@
 
     <section class="section">
       <h3>Forms</h3>
-      <form onsubmit="handleForm()">
+      <form onsubmit="handleForm(event)">
         <fieldset>
           <legend>User Info</legend>
           <p>
             <label for="name">Name:</label>
-            <input id="name" type="text" name="name">
+            <input id="name" type="text" name="name" required>
           </p>
           <p>
             <label for="email">Email:</label>
@@ -87,4 +87,13 @@
     </section class="section">
   </main>
   <my-footer></my-footer>
+  <script>
+    function handleForm(e) {
+      e.preventDefault();
+      e.stopPropagation();
+
+      alert(`Hello ${e.target.elements[1].value}`)
+      e.target.reset()
+    }
+  </script>
 </body>
