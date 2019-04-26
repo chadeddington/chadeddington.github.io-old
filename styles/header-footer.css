@@ -17,8 +17,10 @@ body {
   font-weight: normal;
 }
 
-.hero h3 {
+.hero .sub {
   font-weight: lighter;
+  font-size: 1.17em;
+  margin: 20px 0px;
 }
 
 .hero a {

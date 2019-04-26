@@ -1,39 +1,90 @@
-<div class="page-title page-skills">
-	<h1>HTML Apprentice</h1>
-</div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Skills Development</title>
+  <link rel="stylesheet" href="../../styles/header-footer.css">
+  <script type="module" src="../../web-components/my-footer.js"></script>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    label {
+      width: 100px;
+      display: inline-block;
+    }
+    .section {
+      margin: 50px 0px;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="hero">
+      <h1><a href="../../index.html">chadeddington.github.io</a></h1>
+      <div class="sub">A sample github.io page</div>
+    </div>
+  </header>
+  <main class="container" role="main">
+    <div class="page-title page-skills">
+      <h1>HTML Apprentice</h1>
+    </div>
+  
+    <div class="section">
+      <h2>Requirements</h2>
+      <input type="checkbox" checked>Semantic HTML <br>
+      <input type="checkbox" >Picture Element & srcset <br>
+      <input type="checkbox" >SVG <br>
+    </div>
+  
+    <h2>Semantic HTML5 Elements</h2>
 
-<div class="page-content">
-  <header>
-  	<h3>Semantic HTML5 Elements</h3>
-		<h5>This is the header</h5>
-	</header>
-	<section>
-		<p>This is a section. <mark>This text is marked</mark></p>
-	</section>
+    <div class="section">
+      <h3>Sample List</h3>
+      <ol>
+        <li>Headings</li>
+        <li>Landmark Elements</li>
+        <li>Lists</li>
+        <li>Forms, Labels, and Fieldsets</li>
+        <li>Buttons and Links</li>
+      </ol>
+    </div class="section">
 
-	<article>
-		<h5>Audio</h5>
-		<audio controls>
-		  <!-- <source src=bieber.ogg type=audio/ogg> -->
-		  <!-- <source src=bieber.mp3 type=audio/mp3> -->
-		</audio>
-	</article>
+    <section class="section">
+      <h3>Video</h3>
+      <video controls height="600">
+        <source src='../../assets/fireworks.mp4' type=video/mp4>
+      </video>
+    </section class="section">
 
-	<article>
-		<h5>Video</h5>
-		<video controls height="600">
-		  <source src='../../assets/fireworks.mp4' type=video/mp4>
-		</video>
-	</article>
-</paper-material>
-
-<paper-material>
-	<article>
-		<h3>Forms</h3>
-		<form>
-			<label>Name:</label><input type="text" name="name"><br>
-			<label>Email:</label><input type="email" name="email"><br>
-			<label>Phone:</label><input type="phone" name="phone">
-		</form>
-	</article>
-</div>
+    <section class="section">
+      <h3>Forms</h3>
+      <form onsubmit="handleForm()">
+        <fieldset>
+          <legend>User Info</legend>
+          <p>
+            <label for="name">Name:</label>
+            <input id="name" type="text" name="name">
+          </p>
+          <p>
+            <label for="email">Email:</label>
+            <input id="email" type="email" name="email">
+          </p>
+          <p>
+            <label for="phone">Phone:</label>
+            <input id="phone" type="phone" name="phone">
+          </p>
+          <p>
+            <label for="password">Password:</label>
+            <input id="password" type="password">
+          </p>
+          <p>
+            <label hidden></label>
+            <input type="submit" value="Submit">
+          </p>
+        </fieldset>
+      </form>
+    </section class="section">
+  </main>
+  <my-footer></my-footer>
+</body>
