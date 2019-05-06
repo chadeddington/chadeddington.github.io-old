@@ -84,7 +84,21 @@
           </p>
         </fieldset>
       </form>
-    </section class="section">
+    </section>
+    <section class="section">
+      <h2Picture</h2>
+      <h3>By width</h3>
+      <picture>
+        <source media="(min-width:1200px" srcset="images/la_vagabonde_1200.jpg">
+        <img src="images/LA_VAGABONDE_800.jpg" alt="">
+      </picture>
+
+      <h3>By pixel density</h3>
+      <picture>
+        <source media="(min-width: 655px)" srcset="images/oceanis_55_655.jpg, images/oceanis_55_1280.jpg 2x">
+          <img src="images/oceanis_55_655.jpg" alt="" srcset="images/oceanis_55_655.jpg, images/oceanis_55_1280.jpg 2x">
+      </picture>
+    </section>
   </main>
   <my-footer></my-footer>
   <script>
