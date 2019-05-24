@@ -214,12 +214,23 @@
       <div id="location"></div>
 
       <h3>Device Orientation</h3>
-      <div id="orientation">No device orientation info found</div>
+      <div id="orientationText">No device orientation info found</div>
+      
+      <h3>Vibrate</h3>
+      <button id="vibrateBtn" onClick="buzz()">BUZZ</button>
     </section>
   </main>
   <my-footer></my-footer>
   <script>
-    window.addEventListener("deviceorientation", function(e) {alert(e)}, true);
+    // For some reason this method doesn't work...
+    // window.addEventListener("deviceorientation", handleOrientation);
+    if (!isNaN(window.orientation)) handleOrientation();
+    // ...but this one does
+    window.onorientationchange = handleOrientation
+
+    if (!navigator.vibrate) {
+      document.querySelector('#vibrateBtn').setAttribute('disabled', true);
+    }
 
     function handleForm(e) {
       e.preventDefault();
@@ -257,8 +268,11 @@
     }
 
     function handleOrientation(e) {
-      document.querySelector('#orientation').innerText = 'Orientation detected';
-      document.querySelector('#orientation').innerText = e.beta;
+      document.querySelector('#orientationText').innerText = window.orientation
+    }
+
+    function buzz() {
+      navigator.vibrate(1000);
     }
   </script>
 </body>
