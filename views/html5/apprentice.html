@@ -54,7 +54,7 @@
       filter: url('#myblurfilter');
     }
 
-    #location {
+    #location, #orientation {
       margin-top: 10px;
     }
   </style>
@@ -212,10 +212,15 @@
       <h3>Geolocation: Where am I?</h3>
       <button onClick="getLocation()">Find Me</button>
       <div id="location"></div>
+
+      <h3>Device Orientation</h3>
+      <div id="orientation">No device orientation info found</div>
     </section>
   </main>
   <my-footer></my-footer>
   <script>
+    window.addEventListener("deviceorientation", handleOrientation, true);
+
     function handleForm(e) {
       e.preventDefault();
       e.stopPropagation();
@@ -249,6 +254,11 @@
         console.log(err)
         locationText.innerText = err.message;
       });
+    }
+
+    function handleOrientation(e) {
+      document.querySelector('#orientation').innerText = 'Orientation detected';
+      document.querySelector('#orientation').innerText = e.beta;
     }
   </script>
 </body>
