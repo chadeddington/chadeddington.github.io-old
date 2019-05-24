@@ -53,6 +53,10 @@
     .no-color {
       filter: url('#myblurfilter');
     }
+
+    #location {
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -197,11 +201,17 @@
 
     <h2>Device APIs</h2>
     <section>
+      <h3>Browser APIs</h3>
+      <a href="/projects/web-audio/index.html">Media Stream and Web Audio API</a>
       <h3>Touch Events</h3>
       <div style="width: 100%; height: 200px; background-color: lightblue; font-size: 36px; text-align: center; color: white;"
       ontouchstart="handleTouchStart(event)"
       ontouchmove="handleTouchMove(event)"
       ontouchend="handleTouchEnd(event)">Tap Me</div>
+
+      <h3>Geolocation: Where am I?</h3>
+      <button onClick="getLocation()">Find Me</button>
+      <div id="location"></div>
     </section>
   </main>
   <my-footer></my-footer>
@@ -227,6 +237,18 @@
     function handleTouchEnd(e) {
       e.target.style.backgroundColor = 'lightblue';
       e.target.innerText = "Tap Me";
+    }
+
+    function getLocation() {
+      const locationText = document.querySelector('#location');
+      locationText.innerText = "Searching....This may take some time"
+      navigator.geolocation.getCurrentPosition(function(position) {
+        console.log('success');
+        locationText.innerText = position.coords.latitude + ', ' + position.coords.longitude;
+      }, function(err) {
+        console.log(err)
+        locationText.innerText = err.message;
+      });
     }
   </script>
 </body>
