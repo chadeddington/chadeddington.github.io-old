@@ -219,7 +219,7 @@
   </main>
   <my-footer></my-footer>
   <script>
-    window.addEventListener("deviceorientation", handleOrientation, true);
+    window.addEventListener("deviceorientation", function(e) {alert(e)}, true);
 
     function handleForm(e) {
       e.preventDefault();
