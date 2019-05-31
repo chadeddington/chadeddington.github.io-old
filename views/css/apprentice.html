@@ -1,0 +1,103 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Skills Development</title>
+  <link rel="stylesheet" href="../../styles/header-footer.css">
+  <script type="module" src="../../web-components/my-footer.js"></script>
+  <style>
+    #columns {
+      column-count: 2;
+    }
+
+    #background {
+      padding: 50px;
+      color: white;
+      font-size: 22px;
+      -webkit-text-stroke: 1px black;
+      font-weight: bold;
+      background-image: url(images/water.jpg);
+    }
+
+    .clip {
+      max-width: 600px;
+      clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    }
+
+    .funnel-wrapper {
+      max-width: 450px;
+      margin: auto;
+    }
+
+    .left {
+      shape-outside: polygon(0 0, 100% 100%, 0 100%);
+      float: left;
+      width: 40%;
+      height: 12ex;
+      transform: scaleX(-1);
+    }
+
+    .right {
+      shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+      float: right;
+      width: 40%;
+      height: 12ex;
+    }
+
+    .funnel {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header role="banner">
+    <div class="img-wrapper">
+      <a href="../../index.html"><img src="/assets/images/standing_on_chair.JPG" alt=""></a>
+    </div>
+    <div class="hero">
+      <h1>CSS Apprentice</h1>
+    </div>
+  </header>
+  <main class="container" role="main">
+    <h1>2 features from "Latest Stable CSS"</h1>
+    
+    <h3>Multi-Column layout</h3>
+    <div id="columns">
+        A multi-column container (or multicol container for short) is an element whose column-width or column-count property is not auto and therefore acts as a container for multi-column layout.
+
+        In the traditional CSS box model, the content of an element is flowed into the content box of the corresponding element. Multi-column layout introduces a new type of container between the content box and the content, namely the column box (or column for short). The content of a multicol container is flowed into its column boxes.
+        
+        Column boxes in a multi-column container are arranged into rows. Like table cells, the column boxes in a row are ordered in the inline direction of the multicol container. The column width is the length of the column box in the inline direction. The column height is the length of the column box in the block direction. All column boxes in a row have the same column width, and all column boxes in a row have the same column height. Within each row in the multi-column container, adjacent column boxes are separated by a column gap, which may contain a column rule. All column gaps in the same row are equal. All column rules in the same row are also equal, if they appear; column rules only appear between columns that both have content.
+        
+        In the simplest case a multicol container will contain only one row of columns, and the height of each column will be equivalent to the used height of the multi-column container’s content box.
+    </div>
+
+    <h3>Backgrounds</h3>
+    <div id="background">
+        Each box has a background layer that may be fully transparent (the default), or filled with a color and/or one or more images. The background properties specify what color (background-color) and images (background-image) to use, and how they are sized, positioned, tiled, etc.
+
+        The background properties are not inherited, but the parent box’s background will shine through by default because of the initial transparent value on background-color.
+    </div>
+
+    <h1>2 features from "Testing" status section</h1>
+
+    <h3>CSS Masking</h3>
+    <img class="clip" src="images/water.jpg" alt="">
+    
+    <h3>CSS Shapes</h3>
+    <div class="funnel-wrapper">
+      <div class="left"></div>
+      <div class="right"></div>
+      <p class="funnel">
+          Sometimes a web page’s text content appears to be
+          funneling your attention towards a spot on the page
+          to drive you to follow a particular link. Sometimes
+          you don’t notice.
+      </p>
+    </div>
+
+
+    
+  </main>
+  <my-footer></my-footer>
+</body>
