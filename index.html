@@ -1,60 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>chadeddington</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>chadeddington</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/header-footer.css" />
+    <script type="module" src="web-components/my-footer.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Karla"
+      rel="stylesheet"
+    />
+    <style>
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: inherit;
+      }
+      p {
+        padding: 50px;
+        max-width: 600px;
+        margin: auto;
+        font-size: 34px;
+        text-align: left;
+        font-family: "Karla", sans-serif;
+        white-space: pre-line;
+      }
+    </style>
+  </head>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles/index.css">
-  <link rel="stylesheet" href="styles/header-footer.css">
-  <script type="module" src="web-components/my-footer.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Karla" rel="stylesheet">
-  <style>
-    main {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: inherit;
-    }
-    p {
-      padding: 50px;
-      max-width: 600px;
-      margin: auto;
-      font-size: 34px;
-      text-align: left;
-      font-family: 'Karla', sans-serif;
-      white-space: pre-line;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <div class="img-wrapper">
-        <a href="index.html"><img src="assets/images/standing_on_chair.JPG" alt=""></a>
-    </div>
-    <div class="hero">
-      <h1>chadeddington.github.io</h1>
-    </div>
-  </header>
-  <div class="container">
-    <main>
-      <div class="group">
-        
-        <p>Welcome,
-  
-          This is where I keep some of my stuff. 
-  
-          If I want to try something or test something out I'll often come put it somewhere on this site.
-  
-          I've also got references for a class I teach and demonstrations for tracking skills.
-        </p>
+  <body>
+    <header>
+      <div class="hero">
+        <h1>chadeddington.github.io</h1>
       </div>
-    </main>
-  </div>
-  <my-footer></my-footer>
-</body>
+    </header>
+    <div class="container">
+      <div class="img-wrapper">
+        <a href="index.html"
+          ><img src="assets/images/standing_on_chair.JPG" alt=""
+        /></a>
+      </div>
+      <main>
+        <div class="group">
+          <p>
+            Welcome, This is where I keep some of my stuff. If I want to try
+            something or test something out I'll often come put it somewhere on
+            this site. I've also got references for a class I teach and
+            demonstrations for tracking skills.
+          </p>
+        </div>
+      </main>
+    </div>
+    <my-footer></my-footer>
+  </body>
 </html>

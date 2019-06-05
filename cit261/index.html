@@ -1,50 +1,90 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>chadeddington</title>
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>chadeddington</title>
+    <!-- Styles -->
+    <link rel="stylesheet" href="../styles/index.css" />
+    <link rel="stylesheet" href="../styles/header-footer.css" />
+    <script type="module" src="../web-components/my-footer.js"></script>
 
-  <!-- Styles -->
-  <link rel="stylesheet" href="../styles/index.css">
-  <link rel="stylesheet" href="../styles/header-footer.css">
-  <script type="module" src="../web-components/my-footer.js"></script>
-</head>
+    <style>
+      iframe {
+        width: 560px;
+        height: 325px;
+      }
 
-<body>
-  <header>
-    <div class="hero">
-      <div class="img-wrapper">
-        <a href="../../index.html"><img src="/assets/images/standing_on_chair.JPG" alt=""></a>
+      @media (max-width: 560px) {
+        iframe {
+          width: 280px;
+          height: 162.5px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="hero">
+        <h1>CIT 261</h1>
       </div>
-      <h1>CIT 261</h1>
-    </div>
-  </header>
-  <div class="container">
-    <main>
-      <div class="links" style="margin-top: 50px">
-        <div class="column">
-          <h2 style="text-align: center;">Fluency Examples</h2>
-          <div class="link"><a href="./basic_fluency.html">Basic Fluency Example</a></div>
-          <div class="link"><a href="./working_fluency.html">Working Fluency Example</a></div>
-          <div class="link"><a href="./skilled_fluency.html">Skilled Fluency Example</a></div>
-          <h2>Videos</h2>
-          <div class="link">
-            <h3>Code Topic Fluencies</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/roszMr8AZNk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-          </div>
-          <div class="link">
-            <h3>Setting up Github pages</h3>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/FHeamFrUb9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </header>
+    <div class="container">
+      <div class="img-wrapper">
+        <a href="../../index.html"
+          ><img src="/assets/images/standing_on_chair.JPG" alt=""
+        /></a>
+      </div>
+      <main>
+        <div class="links" style="margin-top: -50px">
+          <div class="column">
+            <h2>Fluency Examples</h2>
+            <div class="link">
+              <a href="./basic_fluency.html">Basic Fluency Example</a>
+            </div>
+            <div class="link">
+              <a href="./working_fluency.html">Working Fluency Example</a>
+            </div>
+            <div class="link">
+              <a href="./skilled_fluency.html">Skilled Fluency Example</a>
+            </div>
+
+            <h2>Project Demos</h2>
+            <div class="link">
+              <a href="./simple_todo.html">Simple To Do List</a>
+            </div>
+
+            <h2>Videos</h2>
+            <div class="link">
+              <h3>Code Topic Fluencies</h3>
+              <iframe
+                height="315"
+                src="https://www.youtube.com/embed/roszMr8AZNk"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <div class="link">
+              <h3>Setting up Github pages</h3>
+              <iframe
+                width="560"
+                height="315"
+                src="https://www.youtube.com/embed/FHeamFrUb9Y"
+                frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+              ></iframe>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-  </div>
-  <my-footer></my-footer>
-  <!-- <footer>
+      </main>
+    </div>
+    <my-footer></my-footer>
+    <!-- <footer>
     <div class="links">
       <div class="column">
         <h3 class="link">Games</h3>
@@ -68,6 +108,5 @@
       </div>
     </div>
   </footer> -->
-
-</body>
+  </body>
 </html>
