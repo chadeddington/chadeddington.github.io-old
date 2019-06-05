@@ -12,9 +12,19 @@
     <script type="module" src="../web-components/my-footer.js"></script>
 
     <style>
+      .links {
+        margin-top: -50px;
+      }
+
       iframe {
         width: 560px;
         height: 325px;
+      }
+
+      @media (max-width: 679px) {
+        .links {
+          margin-top: 50px;
+        }
       }
 
       @media (max-width: 560px) {
@@ -39,7 +49,7 @@
         /></a>
       </div>
       <main>
-        <div class="links" style="margin-top: -50px">
+        <div class="links">
           <div class="column">
             <h2>Fluency Examples</h2>
             <div class="link">
