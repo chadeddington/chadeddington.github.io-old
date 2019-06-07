@@ -55,10 +55,14 @@ function create() {
 function update() {
   var arrows = this.cursors;
   if (arrows.left.isDown) {
+    this.link.animations.play('walkDown');
     this.link.position.x -= 2;
+    return;
   }
   if (arrows.right.isDown) {
+    this.link.animations.play('walkDown');
     this.link.position.x += 2;
+    return;
   }
   if (arrows.up.isDown) {
     this.link.animations.play('walkUp');
