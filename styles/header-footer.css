@@ -99,7 +99,12 @@ footer .link a:visited {
 }
 
 @media (max-width: 679px) {
+  .img-wrapper img {
+    height: 50px;
+    border: 2px solid white;
+  }
+
   .img-wrapper {
-    display: none;
+    top: -85px;
   }
 }
