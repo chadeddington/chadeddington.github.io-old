@@ -67,6 +67,12 @@ h2 {
   padding: 10px 0px;
 }
 
+h3.link {
+  text-transform: uppercase;
+  font-weight: normal;
+  font-size: 1em;
+}
+
 .link a {
   text-decoration: none;
 }
