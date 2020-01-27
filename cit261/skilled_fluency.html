@@ -27,7 +27,6 @@
 
     .check {
       margin-right: 20px;
-      transform: scale(1.5);
     }
 
     ul {
@@ -54,33 +53,6 @@
       color: white;
     }
   </style>
-
-  <script>
-    var todos = [];
-
-    function addItem() {
-      let item = document.querySelector('#item').value;
-      if (!item) return;
-      todos.push(item);
-      display();
-    }
-
-    function display() {
-      let list = document.querySelector('#list');
-      list.innerHTML = '';
-
-      todos.forEach(item => {
-        let listItem = document.createElement('li');
-        listItem.innerHTML = '<input type="checkbox" class="check"> ' + item;
-        list.appendChild(listItem)
-      })
-    }
-
-    function clearList() {
-      todos = [];
-      display();
-    }
-  </script>
 </head>
 <body>
   <header>
@@ -103,5 +75,53 @@
     </div>
   </div>
   <my-footer></my-footer>
+
+  <script>
+    const input = document.querySelector('#item');
+    const list = document.querySelector('#list')
+
+    input.onkeypress = function(e) {
+      if (e.key === 'Enter') {
+        addItem()
+      }
+    }
+
+    var todos = [];
+
+    let storageTodos = localStorage.getItem('todos');
+    if (storageTodos) {
+      todos = JSON.parse(storageTodos);
+      display();
+    }
+
+    function addItem() {
+      const input = document.querySelector('#item')
+      let item = input.value;
+      if (!item) return;
+      todos.push(item);
+      input.value = '';
+      createItem(item);
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+
+    function display() {
+      todos.forEach(todo => {
+        createItem(todo);
+      })
+    }
+
+    function createItem(value) {
+      let listItem = document.createElement('li');
+      listItem.innerHTML = '<input type="checkbox" class="check"> ' + value;
+      list.appendChild(listItem)
+    }
+
+    function clearList() {
+      todos = [];
+      localStorage.removeItem('todos');
+      list.innerHTML = '';
+    }
+  </script>
+
 </body>
 </html>
